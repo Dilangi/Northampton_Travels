@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Northampton Travels</string>
+
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login">LOGIN</string>
+
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="signup">New User? Signup</string>
+    <string name="email">email</string>
+    <string name="confirmPassword">confirm password</string>
+
+    <string name="empty">Empty</string>
 </resources>

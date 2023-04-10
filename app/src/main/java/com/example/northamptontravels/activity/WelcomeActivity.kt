@@ -1,7 +1,8 @@
-package com.example.northamptontravels
+package com.example.northamptontravels.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.northamptontravels.R
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

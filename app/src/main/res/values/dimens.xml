@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <dimen name="five">5dp</dimen>-->
+<!--    <dimen name="ten">10dp</dimen>-->
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="fifty">50dp</dimen>
+<!--    <dimen name="eighty">80dp</dimen>-->
+    <dimen name="twoHundred">200dp</dimen>
+<!--    <dimen name="fiveHundred">500dp</dimen>-->
+<!--    <dimen name="px_twenty">20px</dimen>-->
+    <dimen name="px_fifty">50px</dimen>
+<!--    <dimen name="px_sixty">60px</dimen>-->
+<!--    <dimen name="px_eighty">80px</dimen>-->
+<!--    <dimen name="px_hundred">100px</dimen>-->
+<!--    <dimen name="px_onefifty">150px</dimen>-->
+</resources>
