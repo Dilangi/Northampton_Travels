@@ -21,19 +21,19 @@
             android:name=".activity.ReviewsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.LoginActivity"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+            android:name=".activity.HomeActivity"
+            android:exported="false"/>
         <activity
-            android:name=".activity.SignupActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.WelcomeActivity"
-            android:exported="false"/>
+            android:name=".activity.SignupActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
     </application>
 
 </manifest>

@@ -10,7 +10,8 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/button_theme</item>
+<!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
     </style>
 
@@ -25,10 +26,14 @@
 <!--        <item name="android:textAlignment">viewEnd</item>-->
 <!--    </style>-->
 
-<!--    <style name="fieldTxt">-->
-<!--        <item name="android:textSize">@dimen/px_twelve</item>-->
-<!--        <item name="android:textColor">@color/black</item>-->
-<!--    </style>-->
+    <style name="fieldTxt">
+        <item name="android:textSize">@dimen/px_fifty</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop" tools:targetApi="o">@dimen/twenty</item>
+        <item name="android:layout_marginHorizontal" tools:targetApi="o">@dimen/fifty</item>
+        <item name="android:padding">@dimen/twenty</item>
+    </style>
 
     <style name="inputTxt">
         <item name="android:textSize">@dimen/px_fifty</item>

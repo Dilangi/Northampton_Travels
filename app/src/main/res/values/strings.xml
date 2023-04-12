@@ -8,8 +8,16 @@
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="signup">New User? Signup</string>
+    <string name="register">Register</string>
     <string name="email">email</string>
     <string name="confirmPassword">confirm password</string>
 
     <string name="empty">Empty</string>
+
+    <string name="item1">Item 1</string>
+    <string name="item2">Item 2</string>
+    <string name="item3">Item 3</string>
+    <string name="item4">Item 4</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
