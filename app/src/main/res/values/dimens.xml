@@ -8,10 +8,10 @@
 <!--    <dimen name="eighty">80dp</dimen>-->
     <dimen name="twoHundred">200dp</dimen>
 <!--    <dimen name="fiveHundred">500dp</dimen>-->
-<!--    <dimen name="px_twenty">20px</dimen>-->
+    <dimen name="px_thirty">30px</dimen>
     <dimen name="px_fifty">50px</dimen>
 <!--    <dimen name="px_sixty">60px</dimen>-->
 <!--    <dimen name="px_eighty">80px</dimen>-->
-<!--    <dimen name="px_hundred">100px</dimen>-->
+    <dimen name="px_hundred">100px</dimen>
 <!--    <dimen name="px_onefifty">150px</dimen>-->
 </resources>

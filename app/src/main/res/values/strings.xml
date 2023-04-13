@@ -13,6 +13,9 @@
     <string name="confirmPassword">confirm password</string>
 
     <string name="empty">Empty</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="confirm">Confirm</string>
 
     <string name="item1">Item 1</string>
     <string name="item2">Item 2</string>
@@ -20,4 +23,56 @@
     <string name="item4">Item 4</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string name="tourPackage">Package</string>
+    <string name="select">Select the package</string>
+    <string name="rate">Rating</string>
+    <string name="description">Review</string>
+    <string name="photos">Add Photos</string>
+    <string name="visited">Visited</string>
+    <string name="food">Food</string>
+    <string name="transport">Transport</string>
+    <string name="accommodation">Accommodation</string>
+    <string name="all">All</string>
+    <string name="foodBrief">We always like to have your feedback.
+        Please let us know your satisfactory level of meals you had during the tour.
+        So we can give our best service in future.</string>
+    <string name="transportBrief">We always like to have your feedback.
+        Please let us know your satisfactory level about transport facilities we provided.
+        So we can give our best service in future.</string>
+    <string name="accommodationBrief">We always like to have your feedback.
+        Please let us know your satisfactory level of accommodation you had during the tour.
+        So we can give our best service in future.</string>
+
+    <!--    places list-->
+    <string-array name="tourPackage">
+        <item>England,Scotland &amp; Ireland</item>
+        <item>United Kingdom &amp; Ireland</item>
+        <item>Britain &amp; Ireland Delight</item>
+        <item>Britain &amp; Ireland Explorer</item>
+        <item>Britain &amp; Ireland Panorama</item>
+        <item>Wonders of Britain &amp; Ireland</item>
+        <item>Best of UK &amp; Ireland</item>
+        <item>Great Britain</item>
+        <item>Grand Tour of Britain &amp; Ireland</item>
+        <item>The Best of Britain &amp; Ireland</item>
+        <item>Essential Britain &amp; Ireland</item>
+        <item>5 Dya Skye &amp; Highland Fling</item>
+        <item>Delve Deep: Britain &amp; Ireland</item>
+        <item>England, Scotland &amp; Wales</item>
+        <item>England, Scotland Heritage</item>
+        <item>Romantic Britain &amp; Ireland</item>
+        <item>Aonghus Youth</item>
+        <item>Irish Highlights (Summer, 7 Days)</item>
+        <item>3 Day Isle of Skye</item>
+        <item>Best of Scotland (Summer, 7 Days)</item>
+        <item>A life en Rose (16 destinations)</item>
+        <item>3 Day Loch Nees &amp; Skye</item>
+        <item>Great Tour of Ireland</item>
+        <item>Highland Fling</item>
+        <item>Highland Experience\'s Scottish Choice</item>
+
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -20,11 +20,30 @@
 <!--        <item name="android:textColor">@color/yellow</item>-->
 <!--    </style>-->
 
-<!--    <style name="answerTxt">-->
-<!--        <item name="android:textSize">@dimen/px_hundred</item>-->
-<!--        <item name="android:textColor">@color/black</item>-->
-<!--        <item name="android:textAlignment">viewEnd</item>-->
-<!--    </style>-->
+    <style name="headingTxt">
+        <item name="android:textSize">@dimen/px_hundred</item>
+        <item name="android:textColor">@color/button_theme</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop" tools:targetApi="o">@dimen/twenty</item>
+        <item name="android:layout_marginLeft" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:padding">@dimen/twenty</item>
+    </style>
+
+    <style name="titleTxt">
+        <item name="android:textSize">@dimen/px_fifty</item>
+        <item name="android:textColor">@color/button_theme</item>
+        <item name="android:layout_marginTop" tools:targetApi="o">@dimen/twenty</item>
+        <item name="android:layout_marginLeft" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:padding">@dimen/twenty</item>
+    </style>
+
+    <style name="labelTxt">
+        <item name="android:textSize">@dimen/px_fifty</item>
+        <item name="android:textColor">@color/button_theme</item>
+        <item name="android:layout_marginTop" tools:targetApi="o">@dimen/twenty</item>
+        <item name="android:layout_marginLeft" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:padding">@dimen/ten</item>
+    </style>
 
     <style name="fieldTxt">
         <item name="android:textSize">@dimen/px_fifty</item>
@@ -46,7 +65,7 @@
 
     <style name="navigateButton" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textSize">@dimen/px_fifty</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginHorizontal" tools:targetApi="o">@dimen/fifty</item>
         <item name="android:layout_marginTop" tools:targetApi="o">@dimen/twenty</item>
@@ -54,6 +73,16 @@
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/twenty</item>
         <item name="android:textAlignment">center</item>
         <item name="android:background">@drawable/bg_btn_navigate</item>
+    </style>
+
+    <style name="negativeButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">@dimen/px_thirty</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:padding" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/grey_btn</item>
     </style>
 
     <style name="subButton">
@@ -67,5 +96,9 @@
         <item name="android:clickable">true</item>
     </style>
 
+    <style name="MyAppTheme.RatingBar" parent="Theme.AppCompat">
+    <item name="colorControlActivated">@color/rating_yellow</item>
+    <item name="colorControlNormal">@color/grey</item>
 
+</style>
 </resources>

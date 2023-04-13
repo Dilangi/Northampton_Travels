@@ -9,7 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#555555</color>
     <color name="light_grey">#D0CECE</color>
+    <color name="icon_grey">#8E8B8B</color>
     <color name="yellow">#F6F506 </color>
+    <color name="rating_yellow">#FFF906</color>
     <color name="button_theme">#002060</color>
     <color name="submit">#2A7438</color>
 </resources>

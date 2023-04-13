@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.AddReviewActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:backgroundTint="@color/button_theme"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/negativeButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/all"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_arrow_24"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                style="@style/negativeButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fastfood_24"
+                android:contentDescription="@string/food"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_arrow_24"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                style="@style/negativeButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_hotel_24"
+                android:contentDescription="@string/accommodation"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_arrow_24"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"/>
+            <ImageView
+            style="@style/negativeButton"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tansport_24"
+            android:contentDescription="@string/transport"/>
+        </LinearLayout>
+
+
+
+        <fragment
+            android:id="@+id/fragment_review"
+            android:name="com.example.northamptontravels.fragment.FirstFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            tools:layout="@layout/fragment_first" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_back"
+                style="@style/negativeButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:text="@string/back" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                style="@style/negativeButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:text="@string/next"
+                android:backgroundTint="@color/button_theme"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>
