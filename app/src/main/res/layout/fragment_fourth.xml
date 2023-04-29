@@ -13,7 +13,7 @@ tools:context=".fragment.FourthFragment">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:text="@string/accommodation" />
+    android:text="@string/accommodation"/>
 
 <TextView
     style="@style/titleTxt"
@@ -59,7 +59,7 @@ tools:context=".fragment.FourthFragment">
 
         <androidx.appcompat.widget.AppCompatRatingBar
             android:id="@+id/rating_bar"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/ten"
             android:contentDescription="@string/rate"

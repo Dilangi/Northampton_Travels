@@ -4,6 +4,7 @@
     <dimen name="ten">10dp</dimen>
     <dimen name="twenty">20dp</dimen>
     <dimen name="thirty">30dp</dimen>
+    <dimen name="forty">40dp</dimen>
     <dimen name="fifty">50dp</dimen>
 <!--    <dimen name="eighty">80dp</dimen>-->
     <dimen name="twoHundred">200dp</dimen>

@@ -2,21 +2,31 @@ package com.example.northamptontravels.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.northamptontravels.R
+import com.example.northamptontravels.adapter.ReviewAdapter
 import com.google.android.material.navigation.NavigationView
 
 class HomeActivity : AppCompatActivity() {
     var toggle: ActionBarDrawerToggle?=null
     var drawerLayout: DrawerLayout?=null
     var navView: NavigationView?=null
+    var rvReviews: RecyclerView?=null
+    var actPackage: AutoCompleteTextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        rvReviews = findViewById(R.id.rvReviews)
+        actPackage = findViewById(R.id.act_package)
         drawerLayout=findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
 
@@ -31,6 +41,16 @@ class HomeActivity : AppCompatActivity() {
             }
             true
         }
+
+//set the package names to autoCompleteTextView
+        val packages = resources.getStringArray(R.array.tourPackage)
+        val packageAdapter = ArrayAdapter<String>(this, R.layout.review,packages)
+        actPackage?.setAdapter(packageAdapter)
+
+//        val userAdapter = ReviewAdapter(dbHelper.getUsers())
+//
+//        rvReviews.layoutManager = LinearLayoutManager(this)
+//        rvReviews.adapter = userAdapter
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

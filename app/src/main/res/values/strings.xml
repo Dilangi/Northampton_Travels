@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Northampton Travels</string>
 
+    <string name="english">En</string>
+
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="login">LOGIN</string>
@@ -17,12 +19,17 @@
     <string name="next">Next</string>
     <string name="confirm">Confirm</string>
 
-    <string name="item1">Item 1</string>
-    <string name="item2">Item 2</string>
-    <string name="item3">Item 3</string>
-    <string name="item4">Item 4</string>
+    <string name="item1">Add Review</string>
+    <string name="item2">Reviews</string>
+    <string name="item3">Edit Profile</string>
+    <string name="item4">Logout</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string name="readMore">Read More</string>
+    <string name="sample">This is a common issue we have ran into for multiple apps we develop. Design requires that if the text is longer than a few lines, then we should add 3 dots, and the text ‘read more’, on which the user can click, where it then displays ‘read less’, to collapse again.</string>
+
+    <string name="addReview">Add Review</string>
 
     <string name="tourPackage">Package</string>
     <string name="select">Select the package</string>
@@ -30,10 +37,12 @@
     <string name="description">Review</string>
     <string name="photos">Add Photos</string>
     <string name="visited">Visited</string>
+    <string name="posted">Posted</string>
     <string name="food">Food</string>
     <string name="transport">Transport</string>
     <string name="accommodation">Accommodation</string>
     <string name="all">All</string>
+    <string name="overall">Overall</string>
     <string name="foodBrief">We always like to have your feedback.
         Please let us know your satisfactory level of meals you had during the tour.
         So we can give our best service in future.</string>
@@ -73,6 +82,17 @@
         <item>Highland Experience\'s Scottish Choice</item>
 
     </string-array>
+
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Sinhala</item>
+        <item>French</item>
+        <item>Tamil</item>
+    </string-array>
+
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

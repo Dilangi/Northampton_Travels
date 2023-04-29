@@ -21,13 +21,13 @@
             android:name=".activity.ReviewsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.HomeActivity"
+            android:name=".activity.AddReviewActivity"
             android:exported="false"/>
         <activity
             android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.AddReviewActivity"
+            android:name=".activity.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

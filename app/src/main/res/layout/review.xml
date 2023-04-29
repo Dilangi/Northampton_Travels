@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtPackage"
+        style="@style/labelTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tourPackage" />
+
+    <LinearLayout
+        android:layout_marginHorizontal="@dimen/ten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/overall"/>
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_hotel_24"
+            android:background="@color/button_theme"/>
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tansport_24"
+            android:background="@color/button_theme"/>
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_fastfood_24"
+            android:background="@color/button_theme"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/ten"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/overall_rating"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/forty"
+            android:contentDescription="@string/rate"
+            android:numStars="5"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            app:theme="@style/MyAppTheme.RatingBar" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/accommodation_rating"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/forty"
+            android:contentDescription="@string/rate"
+            android:numStars="5"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            app:theme="@style/MyAppTheme.RatingBar" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/travel_rating"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/forty"
+            android:contentDescription="@string/rate"
+            android:numStars="5"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            app:theme="@style/MyAppTheme.RatingBar" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/food_rating"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/forty"
+            android:contentDescription="@string/rate"
+            android:numStars="5"
+            android:scaleX="0.3"
+            android:scaleY="0.3"
+            app:theme="@style/MyAppTheme.RatingBar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_review"
+        style="@style/listTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="4"
+        android:text="@string/description"/>
+
+    <LinearLayout
+        android:id="@+id/ll_publish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtAuthor"
+            style="@style/subTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/username" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            style="@style/subTxt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/posted" />
+    </LinearLayout>
+</LinearLayout>
