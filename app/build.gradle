@@ -47,4 +47,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     //HTTP network
     implementation 'com.android.volley:volley:1.2.1'
+//    json-gson conversion
+    implementation 'com.google.code.gson:gson:2.8.9'
 }

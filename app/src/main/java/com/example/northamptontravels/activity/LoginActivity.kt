@@ -1,11 +1,12 @@
 package com.example.northamptontravels.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
@@ -13,14 +14,14 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
+import com.example.northamptontravels.entity.User
+import com.example.northamptontravels.utils.Constant
+import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
-
-    //    var url = "http://10.136.197.119/friendly/rank-data-information.php?op=1"; //for university WAN
-    var url = "http://192.168.0.102/northampton_travels/user.php?op=1"
-    var getCredentials = url + "&getCredentials=1"
+    var getCredentials = "${Constant.BASE_URL}${Constant.LOGIN_PATH}"
 
     //initiate variable
     private var etUsername: EditText? = null
@@ -60,28 +61,31 @@ class LoginActivity : AppCompatActivity() {
             var username = etUsername?.text.toString()
             var password = etPassword?.text.toString()
 
-            if (isValidUser(username, password)) {
-                //direct to Home page
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
-            }
-            else
-                Toast.makeText(this, "Incorrect credentials", Toast.LENGTH_SHORT).show()
-        }
+            isValidUser(username, password) }
     }
 
-    private fun isValidUser(username: String, password: String): Boolean {
-        var getPassword =""
+    private fun isValidUser(username: String, password: String) {
 
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
-            Method.GET,
+            Method.POST,
             getCredentials,
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    getPassword = obj.getString("password")
-                    Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show()
+
+                    val gson = Gson()
+                    val user: User = gson.fromJson(obj.get("user").toString(), User::class.java)
+                    if(password==user.password){
+                        Toast.makeText(this, "Login Success!", Toast.LENGTH_LONG).show()
+                        saveUser(user)
+                        //direct to Home page
+                            val intent = Intent(this, HomeActivity::class.java)
+                            startActivity(intent)
+                        }
+                        else
+                        Toast.makeText(this, "Incorrect credentials", Toast.LENGTH_SHORT).show()
+
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
@@ -107,6 +111,19 @@ class LoginActivity : AppCompatActivity() {
 
         queue.add(stringRequest)
 
-        return (password==getPassword)
+
+    }
+
+    //put user details in shared preferences
+    private fun saveUser(user: User) {
+        val preferences = getSharedPreferences("preferences", MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.putInt("userId", user.userId)
+        editor.putString("username", user.username)
+        editor.putString("email", user.email)
+        editor.putString("firstName", user.firstName)
+        editor.putString("lastName", user.lastName)
+        editor.apply()
+        editor.commit()
     }
 }

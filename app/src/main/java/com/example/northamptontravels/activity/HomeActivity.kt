@@ -1,5 +1,6 @@
 package com.example.northamptontravels.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         rvReviews = findViewById(R.id.rvReviews)
-        actPackage = findViewById(R.id.act_package)
+        actPackage = findViewById(R.id.actPackage)
         drawerLayout=findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
 
@@ -37,7 +38,28 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         navView?.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1->Toast.makeText(applicationContext,"Click 1", Toast.LENGTH_SHORT).show()
+                R.id.addReview-> {
+                    //direct to Addd Review page
+                    val intent = Intent(this, AddReviewActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.myReviews-> {
+                    //todo set reviews list by reviews of user
+//                    setMyReviews()
+                }
+                R.id.reviews-> {
+                    //todo set all posted reviews for particular package
+//                    setReviews()
+                }
+                R.id.editProfile-> {
+                    //direct to Profile Activity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.logout-> {
+                    //todo confirmation and logout
+//                    showDialog()
+                }
             }
             true
         }

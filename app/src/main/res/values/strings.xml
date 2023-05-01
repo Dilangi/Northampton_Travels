@@ -17,12 +17,13 @@
     <string name="empty">Empty</string>
     <string name="back">Back</string>
     <string name="next">Next</string>
+    <string name="save">Save</string>
     <string name="confirm">Confirm</string>
 
-    <string name="item1">Add Review</string>
-    <string name="item2">Reviews</string>
-    <string name="item3">Edit Profile</string>
-    <string name="item4">Logout</string>
+    <string name="myReview">My Reviews</string>
+    <string name="reviews">Reviews</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="logout">Logout</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
 

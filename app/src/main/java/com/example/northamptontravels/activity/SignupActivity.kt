@@ -3,6 +3,7 @@ package com.example.northamptontravels.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -13,14 +14,12 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.User
+import com.example.northamptontravels.utils.Constant
 import org.json.JSONException
 import org.json.JSONObject
 
 class SignupActivity : AppCompatActivity() {
-
-    //    var url = "http://10.136.197.119/friendly/rank-data-information.php?op=1"; //for university WAN
-    var url = "http://192.168.0.102/northampton_travels/user.php?op=1"
-    var addUser = url + "&addUser=1"
+    var addUser = "${Constant.BASE_URL}${Constant.SIGNUP_PATH}"
 
     //initiate variable
     private var etFirstName: EditText? = null
@@ -73,7 +72,6 @@ class SignupActivity : AppCompatActivity() {
                 val user =
                     User(firstName, lastName, email, username, password) //create the user object
                 registerUser(user)
-                nextView()
             } else
                 Toast.makeText(this, "Password mismatch", Toast.LENGTH_SHORT).show()
         }
@@ -83,12 +81,13 @@ class SignupActivity : AppCompatActivity() {
     private fun registerUser(user: User) {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
-            Method.POST,
+            Method. POST,
             addUser,
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Toast.makeText(this, response.toString(), Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, obj.get("message").toString(), Toast.LENGTH_LONG).show()
+                    nextView()
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }
