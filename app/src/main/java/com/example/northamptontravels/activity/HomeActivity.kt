@@ -37,30 +37,7 @@ class HomeActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         navView?.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.addReview-> {
-                    //direct to Addd Review page
-                    val intent = Intent(this, AddReviewActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.myReviews-> {
-                    //todo set reviews list by reviews of user
-//                    setMyReviews()
-                }
-                R.id.reviews-> {
-                    //todo set all posted reviews for particular package
-//                    setReviews()
-                }
-                R.id.editProfile-> {
-                    //direct to Profile Activity
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                }
-                R.id.logout-> {
-                    //todo confirmation and logout
-//                    showDialog()
-                }
-            }
+            setMenu(it.itemId)
             true
         }
 
@@ -73,6 +50,34 @@ class HomeActivity : AppCompatActivity() {
 //
 //        rvReviews.layoutManager = LinearLayoutManager(this)
 //        rvReviews.adapter = userAdapter
+    }
+
+    //set navigation drawermenu
+    private fun setMenu(itemId: Int) {
+        when(itemId){
+            R.id.addReview-> {
+                //direct to Addd Review page
+                val intent = Intent(this, AddReviewActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.myReviews-> {
+                //todo set reviews list by reviews of user
+//                    setMyReviews()
+            }
+            R.id.reviews-> {
+                //todo set all posted reviews for particular package
+//                    setReviews()
+            }
+            R.id.editProfile-> {
+                //direct to Profile Activity
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.logout-> {
+                //todo confirmation and logout
+//                    showDialog()
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
