@@ -1,7 +1,6 @@
 package com.example.northamptontravels.fragment
 
 import android.app.DatePickerDialog
-import android.content.res.Resources
 import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,21 +10,20 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.widget.AppCompatRatingBar
 import com.example.northamptontravels.R
-import java.text.SimpleDateFormat
-import java.util.*
+import com.example.northamptontravels.entity.Review
 
 class FirstFragment : Fragment() {
-    var spPackage: Spinner?= null
-    var etReview: EditText?=null
-    var ratingBar: AppCompatRatingBar?= null
-    var tvMonth: TextView?= null
+    //todo image upload
+    //initiate variable
+    var spPackage: Spinner? = null
+    var etReview: EditText? = null
+    var ratingBar: AppCompatRatingBar? = null
+    var tvMonth: TextView? = null
     var dpVisited: ImageView? = null
 
-
     var visitedDate: String? = ""
-//    val packages=resources.getStringArray(R.array.tourPackage)
-    var packagePosition: Int?=0
-    var ratingAll: Float? =0f
+    var packagePosition: Int? = 0
+    var ratingAll: Float? = 0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,15 +35,20 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        etReview= getView()?.findViewById(R.id.etReview)
+
+        //assign UI components to variables
+        etReview = getView()?.findViewById(R.id.etReview)
         ratingBar = getView()?.findViewById(R.id.ratingBar)
         tvMonth = getView()?.findViewById(R.id.tvMonth)
         spPackage = getView()?.findViewById(R.id.spPackage)
         dpVisited = getView()?.findViewById(R.id.dpVisited)
 
         //set spinner values
-        ArrayAdapter.createFromResource(requireContext(),R.array.tourPackage, android.R.layout.simple_spinner_item).also{
-            adapter->
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.tourPackage,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spPackage?.adapter = adapter
         }
@@ -68,26 +71,54 @@ class FirstFragment : Fragment() {
 
         //listener for rating bar
         ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-             ratingAll = ratingBar.rating }
+            ratingAll = ratingBar.rating
+        }
 
 //        dpVisited.setOnDateChangedListener()
         dpVisited?.setOnClickListener()
         {
-            getPostedDate()
+            getVisitedDate()
         }
     }
 
-    private fun getPostedDate() {
+    private fun getVisitedDate() {
         val calender = Calendar.getInstance()
         val visitedYr = calender.get(Calendar.YEAR)
         val visitedMonth = calender.get(Calendar.MONTH)
         val visitedDay = calender.get(Calendar.DATE)
 
         val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-             visitedDate = "$dayOfMonth/${month + 1}/$year"
+            visitedDate = "$dayOfMonth/${month + 1}/$year"
             tvMonth?.setText(visitedDate)
         }, visitedYr, visitedMonth, visitedDay)
 
         datePickerDialog.show()
     }
-    }
+
+    //set values to Review object
+    fun getFirstReviewData(): Review {
+        val reviewData = Review()
+        if (packagePosition == 0) {
+            Toast.makeText(
+                requireContext(),
+                resources.getString(R.string.selectPackage),
+                Toast.LENGTH_SHORT
+            ).show()
+        } else if (ratingAll == 0f) {
+            Toast.makeText(
+                requireContext(),
+                resources.getString(R.string.addRating),
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            val packages = resources.getStringArray(R.array.tourPackage)
+            reviewData.packageName = packages[packagePosition!!]
+            reviewData.overall = etReview?.text.toString()
+            reviewData.overallRating = ratingAll!!
+            reviewData.visitedDate = visitedDate!!
+            //todo image upload
+        }
+        return reviewData
+
+}
+}

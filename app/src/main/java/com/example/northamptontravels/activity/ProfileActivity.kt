@@ -61,7 +61,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun setUserDetails() {
         val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
-        firstName = preferences.getString("username", "")
+        firstName = preferences.getString("firstName", "")
         lastName = preferences.getString("lastName", "")
         username = preferences.getString("username", "")
         email = preferences.getString("email", "")

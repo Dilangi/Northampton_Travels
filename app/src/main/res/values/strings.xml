@@ -26,6 +26,7 @@
     <string name="logout">Logout</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="submit">Submit</string>
 
     <string name="readMore">Read More</string>
     <string name="sample">This is a common issue we have ran into for multiple apps we develop. Design requires that if the text is longer than a few lines, then we should add 3 dots, and the text ‘read more’, on which the user can click, where it then displays ‘read less’, to collapse again.</string>
@@ -54,6 +55,9 @@
         Please let us know your satisfactory level of accommodation you had during the tour.
         So we can give our best service in future.</string>
 
+<!--    warnings-->
+ <string name="selectPackage">Please Select Package</string>
+    <string name="addRating">Please Add Rating</string>
     <!--    places list-->
     <string-array name="tourPackage">
         <item>England,Scotland &amp; Ireland</item>

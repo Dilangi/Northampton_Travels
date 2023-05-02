@@ -57,7 +57,7 @@ tools:context=".fragment.SecondFragment">
         android:layout_marginTop="@dimen/twenty">
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/rating_bar"
+            android:id="@+id/ratingBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/ten"
@@ -66,7 +66,7 @@ tools:context=".fragment.SecondFragment">
             app:theme="@style/MyAppTheme.RatingBar" />
 
         <EditText
-            android:id="@+id/et_review"
+            android:id="@+id/etReview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
