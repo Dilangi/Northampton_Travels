@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Northampton Travels</string>
 
-    <string name="english">En</string>
-
     <string name="username">username</string>
     <string name="password">password</string>
     <string name="login">LOGIN</string>
@@ -29,7 +27,6 @@
     <string name="submit">Submit</string>
 
     <string name="readMore">Read More</string>
-    <string name="sample">This is a common issue we have ran into for multiple apps we develop. Design requires that if the text is longer than a few lines, then we should add 3 dots, and the text ‘read more’, on which the user can click, where it then displays ‘read less’, to collapse again.</string>
 
     <string name="addReview">Add Review</string>
 
@@ -88,16 +85,4 @@
 
     </string-array>
 
-
-    <string-array name="languages">
-        <item>English</item>
-        <item>Sinhala</item>
-        <item>French</item>
-        <item>Tamil</item>
-    </string-array>
-
-
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

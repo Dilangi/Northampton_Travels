@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Spain spanish-->
+<resources>
+    <string name="app_name" translatable="false">Northampton Travels</string>
+
+    <string name="username">nombre de usuario</string>
+    <string name="password">contraseña</string>
+    <string name="login">ACCESO</string>
+
+    <string name="firstName">Nombre De Pila</string>
+    <string name="lastName">Apellido</string>
+    <string name="signup">¿Nuevo Usuario? Inscribirse</string>
+    <string name="register">Registro</string>
+    <string name="email">correo electrónico</string>
+    <string name="confirmPassword">confirmar Contraseña</string>
+
+    <string name="empty">Vacía</string>
+    <string name="back">Atrás</string>
+    <string name="next">Próxima</string>
+    <string name="save">Ahorrar</string>
+    <string name="confirm">Confirmar</string>
+
+    <string name="myReview">Mis reseñas</string>
+    <string name="reviews">Reseñas</string>
+    <string name="editProfile">Editar perfil</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="open">Abierta</string>
+    <string name="close">Cerca</string>
+    <string name="submit">Entregar</string>
+
+    <string name="readMore">Leer más</string>
+
+    <string name="addReview">Agregar una opinión</string>
+
+    <string name="tourPackage">Paquete</string>
+    <string name="select">Seleccione el paquete</string>
+    <string name="rate">Clasificación</string>
+    <string name="description">Revisar</string>
+    <string name="photos">Agregar fotos</string>
+    <string name="visited">Visitada</string>
+    <string name="posted">Al corriente</string>
+    <string name="food">Alimento</string>
+    <string name="transport">Transporte</string>
+    <string name="accommodation">Alojamiento</string>
+    <string name="all">Toda</string>
+    <string name="overall">En general</string>
+    <string name="foodBrief">Siempre nos gusta tener sus comentarios.
+        Háganos saber su nivel satisfactorio de comidas que tuvo durante el recorrido.
+        Para que podamos dar nuestro mejor servicio en el futuro.</string>
+    <string name="transportBrief">Siempre nos gusta tener sus comentarios.
+        Háganos saber su nivel satisfactorio sobre las instalaciones de transporte que proporcionamos.
+        Para que podamos dar nuestro mejor servicio en el futuro.</string>
+    <string name="accommodationBrief">Siempre nos gusta tener sus comentarios.
+        Háganos saber su nivel satisfactorio de alojamiento que tuvo durante el recorrido.
+        Para que podamos dar nuestro mejor servicio en el futuro.</string>
+
+    <!--    warnings-->
+    <string name="selectPackage">Seleccione el paquete</string>
+    <string name="addRating">Por favor agregue calificación</string>
+    <!--    places list-->
+    <string-array name="tourPackage">
+        <item>Inglaterra, Escocia y amperio; Irlanda</item>
+        <item>Reino Unido &amp; Irlanda</item>
+        <item>Gran Bretaña &amp; Delicia de irlanda</item>
+        <item>Gran Bretaña &amp; Explorador de Irlanda</item>
+        <item>Gran Bretaña &amp; Panorama de Irlanda</item>
+        <item>Maravillas de Gran Bretaña &amp; Irlanda</item>
+        <item>Lo mejor del Reino Unido y Irlanda</item>
+        <item>Gran Bretaña</item>
+        <item>Gran Tour de Gran Bretaña &amp; Irlanda</item>
+        <item>Lo mejor de Gran Bretaña &amp; Irlanda</item>
+        <item>Gran Bretaña esencial &amp; Irlanda</item>
+        <item>5 Dya Skye &amp; aventura de las tierras altas</item>
+        <item>Profundizar: Gran Bretaña &amp; Irlanda</item>
+        <item>Inglaterra, Escocia &amp; Gales</item>
+        <item>Inglaterra, Escocia Patrimonio</item>
+        <item>Gran Bretaña romántica &amp; Irlanda</item>
+        <item>Juventud Aonghus</item>
+        <item>Aspectos destacados de Irlanda (verano, 7 días)</item>
+        <item>Isla de Skye de 3 días</item>
+        <item>La mejor de Escocia (verano, 7 días)</item>
+        <item>Una vida en Rose (16 destinos)</item>
+        <item>3 Días Loch Nees &amp; cielo</item>
+        <item>Gran Tour de Irlanda</item>
+        <item>aventura de las tierras altas</item>
+        <item>La elección escocesa de Highland Experience</item>
+
+    </string-array>
+
+</resources>

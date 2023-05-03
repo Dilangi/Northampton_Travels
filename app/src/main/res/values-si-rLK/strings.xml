@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Sri Lankan Sinhala-->
+<resources>
+    <string name="app_name" translatable="false">Northampton Travels</string>
+
+    <string name="username">පරිශීලක නාමය</string>
+    <string name="password">මුරපදය</string>
+    <string name="login">ඇතුල් වන්න</string>
+
+    <string name="firstName">මුල් නම</string>
+    <string name="lastName">අවසන් නම</string>
+    <string name="signup">නව පරිශීලක? ලියාපදිංචි වන්න</string>
+    <string name="register">ලියාපදිංචි කරන්න</string>
+    <string name="email">විද්යුත් තැපෑල</string>
+    <string name="confirmPassword">මුරපදය තහවුරු කරන්න</string>
+
+    <string name="empty">හිස්</string>
+    <string name="back">ආපසු</string>
+    <string name="next">ඊළඟ</string>
+    <string name="save">සුරකින්න</string>
+    <string name="confirm">තහවුරු කරන්න</string>
+
+    <string name="myReview">මගේ සමාලෝචන</string>
+    <string name="reviews">සමාලෝචන</string>
+    <string name="editProfile">පැතිකඩ සංස්කරණය කරන්න</string>
+    <string name="logout">පිටවීම</string>
+    <string name="open">විවෘත</string>
+    <string name="close">වසන්න</string>
+    <string name="submit">ඉදිරිපත් කරන්න</string>
+
+    <string name="readMore">තවත් කියවන්න</string>
+   <string name="addReview">සමාලෝචන එකතු කරන්න</string>
+
+    <string name="tourPackage">පැකේජය</string>
+    <string name="select">පැකේජය තෝරන්න</string>
+    <string name="rate">ශ්රේණිගත කිරීම</string>
+    <string name="description">සමාලෝචනය කරන්න</string>
+    <string name="photos">ඡායාරූප එකතු කරන්න</string>
+    <string name="visited">සංචාරය කළා</string>
+    <string name="posted">පළ කර ඇත</string>
+    <string name="food">ආහාර</string>
+    <string name="transport">ප්රවාහන</string>
+    <string name="accommodation">නවාතැන්</string>
+    <string name="all">සෑම</string>
+    <string name="overall">සමස්ත</string>
+    <string name="foodBrief">අපි හැම විටම ඔබේ ප්‍රතිපෝෂණය ලබා ගැනීමට කැමතියි.
+        සංචාරය අතරතුර ඔබ ගත් ආහාරවල සතුටුදායක මට්ටම අපට දන්වන්න.
+        එබැවින් අනාගතයේදී අපගේ උපරිම සේවාව ලබා දිය හැකිය.</string>
+    <string name="transportBrief">අපි හැම විටම ඔබේ ප්‍රතිපෝෂණය ලබා ගැනීමට කැමතියි.
+        අප විසින් සපයන ලද ප්‍රවාහන පහසුකම් පිළිබඳව ඔබගේ සතුටුදායක මට්ටම අපට දන්වන්න.
+        එබැවින් අනාගතයේදී අපගේ උපරිම සේවාව ලබා දිය හැකිය.</string>
+    <string name="accommodationBrief">අපි හැම විටම ඔබේ ප්‍රතිපෝෂණය ලබා ගැනීමට කැමතියි.
+        කරුණාකර සංචාරය අතරතුර ඔබ සතු තෘප්තිමත් නවාතැන් පහසුකම් අපට දන්වන්න.
+        එබැවින් අනාගතයේදී අපගේ උපරිම සේවාව ලබා දිය හැකිය.</string>
+
+    <!--    warnings-->
+    <string name="selectPackage">කරුණාකර පැකේජය තෝරන්න</string>
+    <string name="addRating">කරුණාකර ශ්‍රේණිගත කිරීම එක් කරන්න</string>
+    <!--    places list-->
+    <string-array name="tourPackage">
+        <item>එංගලන්තය, ස්කොට්ලන්තය සහ අයර්ලන්තය</item>
+        <item>එක්සත් රාජධානිය සහ අයර්ලන්තය</item>
+        <item>බ්‍රිතාන්‍යය සහ අයර්ලන්තය ඩිලයිට්</item>
+        <item>බ්‍රිතාන්‍ය සහ අයර්ලන්ත ගවේෂක</item>
+        <item>බ්‍රිතාන්‍යය සහ අයර්ලන්ත පරිදර්ශනය</item>
+        <item>බ්‍රිතාන්‍යයේ සහ අයර්ලන්තයේ ආශ්චර්යයන්</item>
+        <item>එක්සත් රාජධානියේ සහ අයර්ලන්තයේ හොඳම</item>
+        <item>මහා බ්රිතාන්යය</item>
+        <item>මහා බ්‍රිතාන්‍ය සහ අයර්ලන්තයේ සංචාරය</item>
+        <item>බ්‍රිතාන්‍යයේ සහ අයර්ලන්තයේ හොඳම දේ</item>
+        <item>අත්යවශ්ය බ්රිතාන්යය සහ අයර්ලන්තය</item>
+        <item>5 Dya Skye සහ Highland Fling</item>
+        <item>Delve Deep: බ්‍රිතාන්‍යය සහ අයර්ලන්තය</item>
+        <item>එංගලන්තය, ස්කොට්ලන්තය සහ වේල්සය</item>
+        <item>එංගලන්තය, ස්කොට්ලන්ත උරුමය</item>
+        <item>රොමෑන්තික බ්‍රිතාන්‍යය සහ අයර්ලන්තය</item>
+        <item>Aonghus යෞවනය</item>
+        <item>අයර්ලන්ත විශේෂ අවස්ථා (ගිම්හානය, දින 7)</item>
+        <item>දින 3 අයිල් ඔෆ් ස්කයි</item>
+        <item>ස්කොට්ලන්තයේ හොඳම (ගිම්හානය, දින 7)</item>
+        <item>A life en Rose (ගමනාන්ත 16)</item>
+        <item>දින 3 ලොච් නීස් සහ ස්කයි</item>
+        <item>අයර්ලන්තයේ විශිෂ්ට සංචාරය</item>
+        <item>හයිලන්ඩ් ෆ්ලින්ග්</item>
+        <item>Highland Experience\'s Scottish Choice</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--China chinese-->
+<resources>
+    <string name="app_name" translatable="false">Northampton Travels</string>
+
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+
+    <string name="firstName">名</string>
+    <string name="lastName">姓</string>
+    <string name="signup">新用户？报名</string>
+    <string name="register">登记</string>
+    <string name="email">电子邮件</string>
+    <string name="confirmPassword">确认密码</string>
+
+    <string name="empty">空的</string>
+    <string name="back">后退</string>
+    <string name="next">下一个</string>
+    <string name="save">节省</string>
+    <string name="confirm">确认</string>
+
+    <string name="myReview">我的评论</string>
+    <string name="reviews">点评</string>
+    <string name="editProfile">编辑个人资料</string>
+    <string name="logout">登出</string>
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+    <string name="submit">提交</string>
+
+    <string name="readMore">阅读更多</string>
+
+    <string name="addReview">添加评论</string>
+
+    <string name="tourPackage">包裹</string>
+    <string name="select">选择套餐</string>
+    <string name="rate">评分</string>
+    <string name="description">审查</string>
+    <string name="photos">添加照片</string>
+    <string name="visited">去过</string>
+    <string name="posted">发表</string>
+    <string name="food">食物</string>
+    <string name="transport">运输</string>
+    <string name="accommodation">住宿</string>
+    <string name="all">全部</string>
+    <string name="overall">全面的</string>
+    <string name="foodBrief">我们总是希望收到您的反馈。
+        请让我们知道您在旅行期间对用餐的满意程度。
+        所以我们可以在未来提供最好的服务。</string>
+    <string name="transportBrief">我们总是希望收到您的反馈。
+        请让我们知道您对我们提供的交通设施的满意程度。
+        所以我们可以在未来提供最好的服务。</string>
+    <string name="accommodationBrief">我们总是希望收到您的反馈。
+        请告诉我们您在旅行期间对住宿的满意程度。
+        所以我们可以在未来提供最好的服务。</string>
+
+    <!--    warnings-->
+    <string name="selectPackage">请选择套餐</string>
+    <string name="addRating">请加分</string>
+    <!--    places list-->
+    <string-array name="tourPackage">
+        <item>英格兰、苏格兰和爱尔兰</item>
+        <item>英国和爱尔兰</item>
+        <item>英国和爱尔兰的喜悦</item>
+        <item>英国和爱尔兰探险家</item>
+        <item>英国和爱尔兰全景</item>
+        <item>英国和爱尔兰的奇迹</item>
+        <item>英国和爱尔兰最佳</item>
+        <item>大不列颠</item>
+        <item>英国和爱尔兰之旅</item>
+        <item>英国和爱尔兰的精华</item>
+        <item>重要的英国和爱尔兰</item>
+        <item>5 Dya Skye 和 Highland Fling</item>
+        <item>深入研究：英国和爱尔兰</item>
+        <item>英格兰、苏格兰和威尔士</item>
+        <item>英格兰、苏格兰遗产</item>
+        <item>浪漫的英国和爱尔兰</item>
+        <item>昂虎青年</item>
+        <item>爱尔兰亮点（夏季，7 天）</item>
+        <item>3天斯凯岛</item>
+        <item>苏格兰最佳（夏季，7 天）</item>
+        <item>玫瑰人生（16 个目的地）</item>
+        <item>尼斯尼斯湖和斯凯岛 3 天</item>
+        <item>爱尔兰之旅</item>
+        <item>高地狂欢</item>
+        <item>高地体验的苏格兰之选</item>
+    </string-array>
+
+</resources>
