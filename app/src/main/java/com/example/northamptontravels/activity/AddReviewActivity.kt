@@ -191,7 +191,7 @@ class AddReviewActivity : AppCompatActivity() {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
-                params.put("packageName", reviewData.packageName!!)
+                params.put("packagesName", reviewData.packagesName!!)
                 params.put("author", reviewData.author!!)
                 params.put("overall", reviewData.overall!!)
                 params.put("overallRating", reviewData.overallRating!!.toString())

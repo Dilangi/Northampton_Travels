@@ -12,5 +12,8 @@ class Constant {
         val LOGIN_PATH: String="&getCredentials=1"
         val UPDATE_USER_PATH: String = "&updateUser=1"
         val INSERT_REVIEW: String = "&addReview=1"
+        val PACKAGE_REVIEWS: String = "&packageReviews=1"
+        val MY_REVIEWS: String = "&authorReviews=1"
+
     }
 }

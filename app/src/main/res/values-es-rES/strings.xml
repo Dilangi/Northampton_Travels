@@ -57,8 +57,11 @@
     <!--    warnings-->
     <string name="selectPackage">Seleccione el paquete</string>
     <string name="addRating">Por favor agregue calificación</string>
+    <string name = "alreadyHere">Ya estas aqui</string>
+
     <!--    places list-->
     <string-array name="tourPackage">
+        <item>Seleccione el paquete</item>
         <item>Inglaterra, Escocia y amperio; Irlanda</item>
         <item>Reino Unido &amp; Irlanda</item>
         <item>Gran Bretaña &amp; Delicia de irlanda</item>

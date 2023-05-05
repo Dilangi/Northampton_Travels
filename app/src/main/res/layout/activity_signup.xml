@@ -12,16 +12,6 @@
         android:layout_weight="0.3"
         android:background="@drawable/img_login" />
 
-    <AutoCompleteTextView
-        android:id="@+id/act_language"
-        android:hint="@string/english"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:layout_gravity="right"
-        android:entries="@array/languages"
-        android:drawableEnd="@drawable/ic_arrow_down_24"/>
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="0dp"

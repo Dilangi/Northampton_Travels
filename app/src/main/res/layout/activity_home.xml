@@ -20,21 +20,28 @@
             android:imeOptions="actionDone"
             android:text="@string/addReview" />
 
-        <AutoCompleteTextView
-            android:id="@+id/actPackage"
-            style="@style/inputTxt"
-            android:hint="@string/tourPackage"
-            android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/spPackage"
+            style="@style/labelTxt"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawableEnd="@drawable/ic_search_24"
-            android:entries="@array/tourPackage" />
+            android:spinnerMode="dropdown"
+            android:layout_gravity="center" />
 
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvReviews"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             style="@style/labelTxt" />
+        </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 <com.google.android.material.navigation.NavigationView

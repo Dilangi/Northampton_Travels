@@ -6,7 +6,7 @@ import android.os.Parcelable
 
 class Review: Parcelable {
 
-     var packageName: String = ""
+     var packagesName: String = ""
     var overall: String=""
     var author: String=""
     var visitedDate: String=""
@@ -39,7 +39,7 @@ class Review: Parcelable {
         TODO("likes"),
         TODO("dislike")
     ) {
-        packageName = parcel.readString()!!
+        packagesName = parcel.readString()!!
         overall = parcel.readString()!!
         author = parcel.readString()!!
         visitedDate = parcel.readString()!!
@@ -57,7 +57,7 @@ class Review: Parcelable {
     }
 
     constructor(
-        packageName: String,
+        packagesName: String,
         overall: String,
         author: String,
         visitedDate: String,
@@ -74,7 +74,7 @@ class Review: Parcelable {
         dislike: Int
 
     ) {
-        this.packageName =packageName
+        this.packagesName =packagesName
         this.overall=overall
         this.author=author
         this.visitedDate=visitedDate
@@ -94,7 +94,7 @@ class Review: Parcelable {
     constructor()
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(packageName)
+        parcel.writeString(packagesName)
         parcel.writeString(overall)
         parcel.writeString(author)
         parcel.writeString(visitedDate)

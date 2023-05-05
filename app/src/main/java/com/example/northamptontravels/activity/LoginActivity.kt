@@ -65,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isValidUser(username: String, password: String) {
-
+//HTTP request to get user details where username = username entered
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
             Method.POST,
@@ -116,6 +116,10 @@ class LoginActivity : AppCompatActivity() {
 
     //put user details in shared preferences
     private fun saveUser(user: User) {
+        var isAdmin: Boolean? = false
+        if(user.email.contains("northamptontravels"))
+            isAdmin=true
+
         val preferences = getSharedPreferences("preferences", MODE_PRIVATE)
         val editor = preferences.edit()
         editor.putInt("userId", user.userId)
@@ -123,6 +127,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("email", user.email)
         editor.putString("firstName", user.firstName)
         editor.putString("lastName", user.lastName)
+        editor.putBoolean("isAuthor", isAdmin!!)
         editor.apply()
         editor.commit()
     }

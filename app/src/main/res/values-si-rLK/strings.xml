@@ -56,8 +56,11 @@
     <!--    warnings-->
     <string name="selectPackage">කරුණාකර පැකේජය තෝරන්න</string>
     <string name="addRating">කරුණාකර ශ්‍රේණිගත කිරීම එක් කරන්න</string>
+    <string name = "alreadyHere">ඔබ දැනටමත් මෙහි සිටී</string>
+
     <!--    places list-->
     <string-array name="tourPackage">
+        <item>කරුණාකර පැකේජය තෝරන්න</item>
         <item>එංගලන්තය, ස්කොට්ලන්තය සහ අයර්ලන්තය</item>
         <item>එක්සත් රාජධානිය සහ අයර්ලන්තය</item>
         <item>බ්‍රිතාන්‍යය සහ අයර්ලන්තය ඩිලයිට්</item>

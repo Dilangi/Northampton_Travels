@@ -57,8 +57,11 @@
     <!--    warnings-->
     <string name="selectPackage">请选择套餐</string>
     <string name="addRating">请加分</string>
+    <string name = "alreadyHere">你已经在这里</string>
+
     <!--    places list-->
     <string-array name="tourPackage">
+        <item>请选择套餐</item>
         <item>英格兰、苏格兰和爱尔兰</item>
         <item>英国和爱尔兰</item>
         <item>英国和爱尔兰的喜悦</item>

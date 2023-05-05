@@ -52,11 +52,14 @@
         Please let us know your satisfactory level of accommodation you had during the tour.
         So we can give our best service in future.</string>
 
-<!--    warnings-->
- <string name="selectPackage">Please Select Package</string>
+    <!--    warnings-->
+    <string name="selectPackage">Please Select Package</string>
     <string name="addRating">Please Add Rating</string>
+    <string name = "alreadyHere">You are already here</string>
+
     <!--    places list-->
     <string-array name="tourPackage">
+        <item>Please Select Package</item>
         <item>England,Scotland &amp; Ireland</item>
         <item>United Kingdom &amp; Ireland</item>
         <item>Britain &amp; Ireland Delight</item>

@@ -57,7 +57,7 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/overall_rating"
+            android:id="@+id/overallRating"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="@dimen/forty"
@@ -68,7 +68,7 @@
             app:theme="@style/MyAppTheme.RatingBar" />
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/accommodation_rating"
+            android:id="@+id/accommodationRating"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="@dimen/forty"
@@ -79,7 +79,7 @@
             app:theme="@style/MyAppTheme.RatingBar" />
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/travel_rating"
+            android:id="@+id/travelRating"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="@dimen/forty"
@@ -90,7 +90,7 @@
             app:theme="@style/MyAppTheme.RatingBar" />
 
         <androidx.appcompat.widget.AppCompatRatingBar
-            android:id="@+id/food_rating"
+            android:id="@+id/foodRating"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="@dimen/forty"
@@ -102,7 +102,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_review"
+        android:id="@+id/tvReview"
         style="@style/listTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         android:text="@string/description"/>
 
     <LinearLayout
-        android:id="@+id/ll_publish"
+        android:id="@+id/llPublish"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
