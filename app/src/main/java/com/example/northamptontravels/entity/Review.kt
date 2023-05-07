@@ -6,6 +6,7 @@ import android.os.Parcelable
 
 class Review: Parcelable {
 
+    var reviewId: Int =0
      var packagesName: String = ""
     var overall: String=""
     var author: String=""
@@ -23,40 +24,43 @@ class Review: Parcelable {
     var dislike: Int= 0
 
     constructor(parcel: Parcel) : this(
-        TODO("packageName"),
-        TODO("overall"),
-        TODO("author"),
-        TODO("visitedDate"),
-        TODO("postedDate"),
-        TODO("overallRating"),
-        TODO("food"),
-        TODO("foodRating"),
-        TODO("transport"),
-        TODO("transportRating"),
-        TODO("accommodation"),
-        TODO("accommodationRating"),
-        TODO("reply"),
-        TODO("likes"),
-        TODO("dislike")
-    ) {
-        packagesName = parcel.readString()!!
-        overall = parcel.readString()!!
-        author = parcel.readString()!!
-        visitedDate = parcel.readString()!!
-        postedDate = parcel.readString()!!
-        overallRating = parcel.readFloat()
-        food = parcel.readString()!!
-        foodRating = parcel.readFloat()
-        transport = parcel.readString()!!
-        transportRating = parcel.readFloat()
-        accommodation = parcel.readString()!!
-        accommodationRating = parcel.readFloat()
-        reply = parcel.readString()!!
-        likes = parcel.readInt()
-        dislike = parcel.readInt()
-    }
+        parcel.readInt()?:  0,
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
+        parcel.readFloat() ?: 0f,
+        parcel.readString() ?: "",
+        parcel.readFloat() ?: 0f,
+        parcel.readString() ?: "",
+        parcel.readFloat() ?: 0f,
+        parcel.readString() ?: "",
+        parcel.readFloat() ?: 0f,
+        parcel.readString() ?: "",
+        parcel.readInt() ?:0,
+        parcel.readInt() ?:0
+    )
+//    {
+//        packagesName = parcel.readString()!!
+//        overall = parcel.readString()!!
+//        author = parcel.readString()!!
+//        visitedDate = parcel.readString()!!
+//        postedDate = parcel.readString()!!
+//        overallRating = parcel.readFloat()
+//        food = parcel.readString()!!
+//        foodRating = parcel.readFloat()
+//        transport = parcel.readString()!!
+//        transportRating = parcel.readFloat()
+//        accommodation = parcel.readString()!!
+//        accommodationRating = parcel.readFloat()
+//        reply = parcel.readString()!!
+//        likes = parcel.readInt()
+//        dislike = parcel.readInt()
+//    }
 
     constructor(
+        reviewId: Int,
         packagesName: String,
         overall: String,
         author: String,
@@ -94,6 +98,7 @@ class Review: Parcelable {
     constructor()
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(reviewId)
         parcel.writeString(packagesName)
         parcel.writeString(overall)
         parcel.writeString(author)

@@ -181,7 +181,11 @@
                         android:src="@mipmap/ic_picture" />
 
                 </LinearLayout>
-
+                <TextView
+                    style="@style/listTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/overall"/>
 
                 <TextView
                     android:id="@+id/tvReview"
@@ -189,6 +193,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/description" />
+                <TextView
+                    style="@style/listTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/food"/>
 
                 <TextView
                     android:id="@+id/tvFood"
@@ -196,6 +205,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/food" />
+                <TextView
+                    style="@style/listTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transport"/>
 
                 <TextView
                     android:id="@+id/tvTransport"
@@ -203,6 +217,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/transport" />
+
+                <TextView
+                    style="@style/listTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accommodation"/>
 
                 <TextView
                     android:id="@+id/tvAccommodation"

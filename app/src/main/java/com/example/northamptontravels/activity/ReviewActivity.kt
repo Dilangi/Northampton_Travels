@@ -12,13 +12,13 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatRatingBar
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.northamptontravels.R
+import com.example.northamptontravels.R.string.overall
 import com.example.northamptontravels.entity.Review
 import com.google.android.material.navigation.NavigationView
 import java.io.Serializable
 
 class ReviewActivity : AppCompatActivity() {
 
-    private var reviewObj: Review?= null
     var toggle: ActionBarDrawerToggle? = null
     var drawerLayout: DrawerLayout? = null
     var navView: NavigationView? = null
@@ -61,8 +61,21 @@ class ReviewActivity : AppCompatActivity() {
             true
         }
 
+        tvPackage = findViewById(R.id.tvPackage)
+        tvMonth = findViewById(R.id.tvMonth)
+        tvPosted = findViewById(R.id.tvPosted)
+        tvReview = findViewById(R.id.tvReview)
+        tvFood = findViewById(R.id.tvFood)
+        tvTransport = findViewById(R.id.tvTransport)
+        tvAccommodation = findViewById(R.id.tvAccommodation)
+        tvAuthor = findViewById(R.id.tvAuthor)
+        ratingBar = findViewById(R.id.ratingBar)
+        ratingFood = findViewById(R.id.ratingFood)
+        ratingTravel = findViewById(R.id.ratingTravel)
+        ratingAccommodation = findViewById(R.id.ratingAccommodation)
 
-        val reviewObj= intent.getSerializableExtra("review") as? Review
+
+        val reviewObj= intent.getParcelableExtra<Review>("review")
         if(reviewObj!=null)
             setReview(reviewObj)
         else
@@ -81,7 +94,7 @@ class ReviewActivity : AppCompatActivity() {
 
     private fun setReview(review: Review) {
         tvPackage!!.text=review.packagesName
-        ratingBar!!.rating=review.overallRating
+        ratingBar!!.rating= review.overallRating
         ratingFood!!.rating=review.foodRating
         ratingTravel!!.rating=review.transportRating
         ratingAccommodation!!.rating=review.accommodationRating

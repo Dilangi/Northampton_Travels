@@ -54,11 +54,18 @@
         Háganos saber su nivel satisfactorio de alojamiento que tuvo durante el recorrido.
         Para que podamos dar nuestro mejor servicio en el futuro.</string>
 
+    <string name="likes">likes</string>
+    <string name="dislikes">dislikes</string>
+    <string name="reply">reply</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+
     <!--    warnings-->
     <string name="selectPackage">Seleccione el paquete</string>
     <string name="addRating">Por favor agregue calificación</string>
     <string name = "alreadyHere">Ya estas aqui</string>
     <string name = "noLoading">Cannot load! Retry</string>
+
 
     <!--    places list-->
     <string-array name="tourPackage">

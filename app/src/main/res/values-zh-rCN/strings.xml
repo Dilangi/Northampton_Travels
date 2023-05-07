@@ -54,6 +54,12 @@
         请告诉我们您在旅行期间对住宿的满意程度。
         所以我们可以在未来提供最好的服务。</string>
 
+    <string name="likes">likes</string>
+    <string name="dislikes">dislikes</string>
+    <string name="reply">reply</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+
     <!--    warnings-->
     <string name="selectPackage">请选择套餐</string>
     <string name="addRating">请加分</string>

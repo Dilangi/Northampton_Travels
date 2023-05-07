@@ -53,6 +53,13 @@
         කරුණාකර සංචාරය අතරතුර ඔබ සතු තෘප්තිමත් නවාතැන් පහසුකම් අපට දන්වන්න.
         එබැවින් අනාගතයේදී අපගේ උපරිම සේවාව ලබා දිය හැකිය.</string>
 
+
+    <string name="likes">likes</string>
+    <string name="dislikes">dislikes</string>
+    <string name="reply">reply</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+
     <!--    warnings-->
     <string name="selectPackage">කරුණාකර පැකේජය තෝරන්න</string>
     <string name="addRating">කරුණාකර ශ්‍රේණිගත කිරීම එක් කරන්න</string>

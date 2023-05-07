@@ -28,7 +28,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
+class HomeActivity : AppCompatActivity(){
 
     var getPackageReviews = "${Constant.REVIEW_URL}${Constant.PACKAGE_REVIEWS}"
 
@@ -149,7 +149,7 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
     }
 
     private fun setReview() {
-        val commentsAdapter = ReviewAdapter(reviewList, true,this)
+        val commentsAdapter = ReviewAdapter(reviewList, true)
         rvReviews!!.layoutManager = LinearLayoutManager(this)
         rvReviews!!.adapter = commentsAdapter
     }
@@ -190,11 +190,4 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onItemClick(position: Int) {
-        var review: Review = reviewList[position]
-        //direct to Review Activity
-        val intent = Intent(this, ReviewActivity::class.java)
-        intent.putExtra("review", review)//pass review details to the next activity
-        startActivity(intent)
-    }
 }

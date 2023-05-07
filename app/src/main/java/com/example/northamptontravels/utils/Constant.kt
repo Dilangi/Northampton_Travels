@@ -14,6 +14,7 @@ class Constant {
         val INSERT_REVIEW: String = "&addReview=1"
         val PACKAGE_REVIEWS: String = "&packageReviews=1"
         val MY_REVIEWS: String = "&authorReviews=1"
+        val REPLY_REVIEW: String = "&reviewReply=1"
 
     }
 }

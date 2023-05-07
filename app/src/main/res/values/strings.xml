@@ -52,6 +52,12 @@
         Please let us know your satisfactory level of accommodation you had during the tour.
         So we can give our best service in future.</string>
 
+    <string name="likes">likes</string>
+    <string name="dislikes">dislikes</string>
+    <string name="reply">reply</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+
     <!--    warnings-->
     <string name="selectPackage">Please Select Package</string>
     <string name="addRating">Please Add Rating</string>
