@@ -58,6 +58,7 @@
     <string name="selectPackage">Seleccione el paquete</string>
     <string name="addRating">Por favor agregue calificación</string>
     <string name = "alreadyHere">Ya estas aqui</string>
+    <string name = "noLoading">Cannot load! Retry</string>
 
     <!--    places list-->
     <string-array name="tourPackage">
@@ -66,14 +67,12 @@
         <item>Reino Unido &amp; Irlanda</item>
         <item>Gran Bretaña &amp; Delicia de irlanda</item>
         <item>Gran Bretaña &amp; Explorador de Irlanda</item>
-        <item>Gran Bretaña &amp; Panorama de Irlanda</item>
         <item>Maravillas de Gran Bretaña &amp; Irlanda</item>
         <item>Lo mejor del Reino Unido y Irlanda</item>
         <item>Gran Bretaña</item>
         <item>Gran Tour de Gran Bretaña &amp; Irlanda</item>
         <item>Lo mejor de Gran Bretaña &amp; Irlanda</item>
         <item>Gran Bretaña esencial &amp; Irlanda</item>
-        <item>5 Dya Skye &amp; aventura de las tierras altas</item>
         <item>Profundizar: Gran Bretaña &amp; Irlanda</item>
         <item>Inglaterra, Escocia &amp; Gales</item>
         <item>Inglaterra, Escocia Patrimonio</item>
@@ -86,7 +85,6 @@
         <item>3 Días Loch Nees &amp; cielo</item>
         <item>Gran Tour de Irlanda</item>
         <item>aventura de las tierras altas</item>
-        <item>La elección escocesa de Highland Experience</item>
 
     </string-array>
 

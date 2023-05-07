@@ -58,6 +58,7 @@
     <string name="selectPackage">请选择套餐</string>
     <string name="addRating">请加分</string>
     <string name = "alreadyHere">你已经在这里</string>
+    <string name = "noLoading">Cannot load! Retry</string>
 
     <!--    places list-->
     <string-array name="tourPackage">
@@ -66,14 +67,12 @@
         <item>英国和爱尔兰</item>
         <item>英国和爱尔兰的喜悦</item>
         <item>英国和爱尔兰探险家</item>
-        <item>英国和爱尔兰全景</item>
-        <item>英国和爱尔兰的奇迹</item>
+       <item>英国和爱尔兰的奇迹</item>
         <item>英国和爱尔兰最佳</item>
         <item>大不列颠</item>
         <item>英国和爱尔兰之旅</item>
         <item>英国和爱尔兰的精华</item>
         <item>重要的英国和爱尔兰</item>
-        <item>5 Dya Skye 和 Highland Fling</item>
         <item>深入研究：英国和爱尔兰</item>
         <item>英格兰、苏格兰和威尔士</item>
         <item>英格兰、苏格兰遗产</item>
@@ -86,7 +85,6 @@
         <item>尼斯尼斯湖和斯凯岛 3 天</item>
         <item>爱尔兰之旅</item>
         <item>高地狂欢</item>
-        <item>高地体验的苏格兰之选</item>
-    </string-array>
+         </string-array>
 
 </resources>

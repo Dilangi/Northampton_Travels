@@ -58,6 +58,10 @@ class MyReviewsActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener
             true
         }
 
+        val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        author = preferences.getString("username", "")
+
+        getReview()
         //set action listener for tap on button
         btnReview!!.setOnClickListener {
             //direct to Addd Review page
@@ -65,15 +69,12 @@ class MyReviewsActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener
             startActivity(intent)
         }
 
-        val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
-        author = preferences.getString("username", "")
 
-        getReview()
     }
 
     //HTTP request to get comments where author = username
     private fun getReview() {
-
+        reviewList= ArrayList()
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
             Method.POST,
@@ -81,16 +82,16 @@ class MyReviewsActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    val objArray: JSONArray =
-                        obj.getJSONArray("reviews") //extract data array from json string
+                    if(obj.get("error")==false){
+                        val objArray = obj.getJSONArray("review") //extract data array from json string
 
-                    //get review from json array and add into arrayList
-                    for (i in 0..objArray.length()) {
+                        //get review from json array and add into arrayList
+                        for (i in 0..objArray.length()-1) {
                         val gson = Gson()
                         val review: Review =
                             gson.fromJson(objArray.getJSONObject(i).toString(), Review::class.java)
                         reviewList.add(review)
-                    }
+                    }}
 
                     setReview()
 

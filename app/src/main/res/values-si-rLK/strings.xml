@@ -57,6 +57,7 @@
     <string name="selectPackage">කරුණාකර පැකේජය තෝරන්න</string>
     <string name="addRating">කරුණාකර ශ්‍රේණිගත කිරීම එක් කරන්න</string>
     <string name = "alreadyHere">ඔබ දැනටමත් මෙහි සිටී</string>
+    <string name = "noLoading">Cannot load! Retry</string>
 
     <!--    places list-->
     <string-array name="tourPackage">
@@ -65,15 +66,13 @@
         <item>එක්සත් රාජධානිය සහ අයර්ලන්තය</item>
         <item>බ්‍රිතාන්‍යය සහ අයර්ලන්තය ඩිලයිට්</item>
         <item>බ්‍රිතාන්‍ය සහ අයර්ලන්ත ගවේෂක</item>
-        <item>බ්‍රිතාන්‍යය සහ අයර්ලන්ත පරිදර්ශනය</item>
         <item>බ්‍රිතාන්‍යයේ සහ අයර්ලන්තයේ ආශ්චර්යයන්</item>
         <item>එක්සත් රාජධානියේ සහ අයර්ලන්තයේ හොඳම</item>
         <item>මහා බ්රිතාන්යය</item>
         <item>මහා බ්‍රිතාන්‍ය සහ අයර්ලන්තයේ සංචාරය</item>
         <item>බ්‍රිතාන්‍යයේ සහ අයර්ලන්තයේ හොඳම දේ</item>
         <item>අත්යවශ්ය බ්රිතාන්යය සහ අයර්ලන්තය</item>
-        <item>5 Dya Skye සහ Highland Fling</item>
-        <item>Delve Deep: බ්‍රිතාන්‍යය සහ අයර්ලන්තය</item>
+       <item>Delve Deep: බ්‍රිතාන්‍යය සහ අයර්ලන්තය</item>
         <item>එංගලන්තය, ස්කොට්ලන්තය සහ වේල්සය</item>
         <item>එංගලන්තය, ස්කොට්ලන්ත උරුමය</item>
         <item>රොමෑන්තික බ්‍රිතාන්‍යය සහ අයර්ලන්තය</item>
@@ -85,7 +84,6 @@
         <item>දින 3 ලොච් නීස් සහ ස්කයි</item>
         <item>අයර්ලන්තයේ විශිෂ්ට සංචාරය</item>
         <item>හයිලන්ඩ් ෆ්ලින්ග්</item>
-        <item>Highland Experience\'s Scottish Choice</item>
 
     </string-array>
 

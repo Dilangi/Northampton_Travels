@@ -56,35 +56,33 @@
     <string name="selectPackage">Please Select Package</string>
     <string name="addRating">Please Add Rating</string>
     <string name = "alreadyHere">You are already here</string>
+    <string name = "noLoading">Cannot load! Retry</string>
 
     <!--    places list-->
     <string-array name="tourPackage">
         <item>Please Select Package</item>
-        <item>England,Scotland &amp; Ireland</item>
-        <item>United Kingdom &amp; Ireland</item>
-        <item>Britain &amp; Ireland Delight</item>
-        <item>Britain &amp; Ireland Explorer</item>
-        <item>Britain &amp; Ireland Panorama</item>
-        <item>Wonders of Britain &amp; Ireland</item>
-        <item>Best of UK &amp; Ireland</item>
+        <item>England,Scotland and Ireland</item>
+        <item>United Kingdom and Ireland</item>
+        <item>Britain and Ireland Delight</item>
+        <item>Britain and Ireland Explorer</item>
+        <item>Wonders of Britain and Ireland</item>
+        <item>Best of UK and Ireland</item>
         <item>Great Britain</item>
-        <item>Grand Tour of Britain &amp; Ireland</item>
-        <item>The Best of Britain &amp; Ireland</item>
-        <item>Essential Britain &amp; Ireland</item>
-        <item>5 Dya Skye &amp; Highland Fling</item>
-        <item>Delve Deep: Britain &amp; Ireland</item>
-        <item>England, Scotland &amp; Wales</item>
+        <item>Grand Tour of Britain and Ireland</item>
+        <item>The Best of Britain and Ireland</item>
+        <item>Essential Britain and Ireland</item>
+        <item>Delve Deep: Britain and Ireland</item>
+        <item>England, Scotland and Wales</item>
         <item>England, Scotland Heritage</item>
-        <item>Romantic Britain &amp; Ireland</item>
+        <item>Romantic Britain and Ireland</item>
         <item>Aonghus Youth</item>
         <item>Irish Highlights (Summer, 7 Days)</item>
         <item>3 Day Isle of Skye</item>
         <item>Best of Scotland (Summer, 7 Days)</item>
         <item>A life en Rose (16 destinations)</item>
-        <item>3 Day Loch Nees &amp; Skye</item>
+        <item>3 Day Loch Nees and Skye</item>
         <item>Great Tour of Ireland</item>
         <item>Highland Fling</item>
-        <item>Highland Experience\'s Scottish Choice</item>
 
     </string-array>
 

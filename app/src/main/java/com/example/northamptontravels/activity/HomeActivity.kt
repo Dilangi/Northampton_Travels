@@ -37,6 +37,7 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
     var navView: NavigationView? = null
     var btnReview: AppCompatButton? = null
     var rvReviews: RecyclerView? = null
+    var ivSearch: ImageView?= null
     var spPackage: Spinner? = null
     var packagesName: String? = null
     var reviewList: ArrayList<Review> = ArrayList()
@@ -45,11 +46,14 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+    ivSearch= findViewById(R.id.ivSearch)
         btnReview = findViewById(R.id.btnReview)
         rvReviews = findViewById(R.id.rvReviews)
         spPackage = findViewById(R.id.spPackage)
+
+    //set drawer navigation
         drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
+        navView = findViewById(R.id.navView)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout?.addDrawerListener(toggle!!)
@@ -61,21 +65,13 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
             true
         }
 
+
         //set action listener for tap on button
         btnReview!!.setOnClickListener {
             //direct to Addd Review page
             val intent = Intent(this, AddReviewActivity::class.java)
             startActivity(intent)
         }
-//set spinner values
-//        ArrayAdapter.createFromResource(
-//            this,
-//            R.array.tourPackage,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            spPackage?.adapter = adapter
-//        }
     val packageList =resources.getStringArray(R.array.tourPackage)
     val spAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,packageList)
     spPackage?.adapter=spAdapter
@@ -83,36 +79,25 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
 
         //listener for the spinner
         spPackage?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            //            override fun onItemSelected(
-//                adapterView: AdapterView<*>?,
-//                view: View?,
-//                position: Int,
-//                id: Long
-//            ) {
-////                packagesName = adapterView?.getItemAtPosition(position).toString()
-//                packagesName=packageList[position]
-//                Log.d("DILLL", "onItemSelected: "+position +" and "+packagesName)
-//                getReview(packagesName!!)
-//            }
-//
-//            override fun onNothingSelected(adapterView: AdapterView<*>?) {
-//                packagesName=null
-//            }
-//
-//        }
+
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                packagesName=packageList[position]
-                Log.d("DILLL", "onItemSelected: "+position +" and "+packagesName)
-                getReview(packagesName!!)
+                packagesName= adapterView!!.getItemAtPosition(position).toString()
+
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
+                packagesName=null
             }}
+    //set action listener for tap on image view
+    ivSearch!!.setOnClickListener {
+        if(packagesName!=packageList[0])
+            getReview()
+    }
         }
 
     //HTTP request to get comments for given package
-    private fun getReview(packagesName: String) {
-        Log.d("DILLL", "getReview: "+packagesName)
+    private fun getReview() {
+        reviewList= ArrayList()
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
             Method.POST,
@@ -131,10 +116,11 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
                         reviewList.add(review)
                     }
 
-                    setReview()}
-                    else{
-                        Toast.makeText(this,obj.get("message").toString(),Toast.LENGTH_SHORT).show()
                     }
+                    else{
+                            Toast.makeText(this,obj.get("message").toString(),Toast.LENGTH_SHORT).show()
+                    }
+                    setReview()
 
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -154,8 +140,7 @@ class HomeActivity : AppCompatActivity(), ReviewAdapter.OnItemClickListener {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
-                params.put("packagesName", packagesName)
-                Log.d("DILLL", "getParams: "+packagesName)
+                params.put("packagesName", packagesName!!)
                 return params
             }
         }

@@ -16,22 +16,36 @@
             android:id="@+id/btnReview"
             style="@style/navigateButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
             android:imeOptions="actionDone"
             android:text="@string/addReview" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
         <Spinner
             android:id="@+id/spPackage"
             style="@style/labelTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:layout_gravity="center" />
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/ivSearch"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search_24"/>
 
 
+</LinearLayout>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="0.7">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -45,7 +59,7 @@
     </LinearLayout>
 
 <com.google.android.material.navigation.NavigationView
-    android:id="@+id/nav_view"
+    android:id="@+id/navView"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     app:headerLayout="@layout/nav_header"
