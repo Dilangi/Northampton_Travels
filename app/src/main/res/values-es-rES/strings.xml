@@ -59,12 +59,20 @@
     <string name="reply">reply</string>
     <string name="edit">edit</string>
     <string name="delete">delete</string>
+    <string name="update">Update</string>
 
     <!--    warnings-->
     <string name="selectPackage">Seleccione el paquete</string>
     <string name="addRating">Por favor agregue calificación</string>
     <string name = "alreadyHere">Ya estas aqui</string>
     <string name = "noLoading">Cannot load! Retry</string>
+    <string name = "commentPlease">Please type a reply</string>
+    <string name = "passwordMissmatch">Password mismatch</string>
+    <string name = "emailPlease">Please Enter Email</string>
+    <string name = "confirmPasswordPlease">Please Re-enter Password</string>
+    <string name = "passwordPlease">Please Enter Password</string>
+    <string name = "usernamePlease">Please Enter Username</string>
+    <string name = "firstNamePlease">Please Enter First Name</string>
 
 
     <!--    places list-->

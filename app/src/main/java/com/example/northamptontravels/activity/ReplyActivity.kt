@@ -72,8 +72,8 @@ class ReplyActivity : AppCompatActivity() {
         }
 
         btnConfirm!!.setOnClickListener{
-            if (etReply?.text.isNullOrEmpty())
-                Toast.makeText(this, "Please Enter Username", Toast.LENGTH_SHORT).show()
+            if (etReply?.text.isNullOrEmpty()){
+                Toast.makeText(this, resources.getString(R.string.commentPlease), Toast.LENGTH_SHORT).show()}
             else
             setReply(etReply?.text.toString())
         }

@@ -82,6 +82,7 @@ class FirstFragment : Fragment() {
         }
     }
 
+    //pick and set date selected to text view
     private fun getVisitedDate() {
         val calender = Calendar.getInstance()
         val visitedYr = calender.get(Calendar.YEAR)

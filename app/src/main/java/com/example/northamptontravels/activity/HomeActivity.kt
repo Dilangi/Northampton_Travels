@@ -2,7 +2,6 @@ package com.example.northamptontravels.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -10,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.AuthFailureError
@@ -23,7 +23,6 @@ import com.example.northamptontravels.entity.Review
 import com.example.northamptontravels.utils.Constant
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -152,6 +151,13 @@ class HomeActivity : AppCompatActivity(){
         val commentsAdapter = ReviewAdapter(reviewList, true)
         rvReviews!!.layoutManager = LinearLayoutManager(this)
         rvReviews!!.adapter = commentsAdapter
+
+        rvReviews!!.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
     }
 
     //set navigation drawermenu

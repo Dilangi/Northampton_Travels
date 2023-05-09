@@ -51,15 +51,15 @@ class SignupActivity : AppCompatActivity() {
     //text field validation.
     private fun validate() {
         if (etFirstName?.text.isNullOrEmpty())
-            Toast.makeText(this, "Please Enter First Name", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.firstNamePlease), Toast.LENGTH_SHORT).show()
         else if (etEmail?.text.isNullOrEmpty())
-            Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.emailPlease), Toast.LENGTH_SHORT).show()
         else if (etUsername?.text.isNullOrEmpty())
-            Toast.makeText(this, "Please Enter Username", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.usernamePlease), Toast.LENGTH_SHORT).show()
         else if (etPassword?.text.isNullOrEmpty())
-            Toast.makeText(this, "Please Enter Password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.passwordPlease), Toast.LENGTH_SHORT).show()
         else if (etConfirmPassword?.text.isNullOrEmpty())
-            Toast.makeText(this, "Please Re-enter Password", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.confirmPasswordPlease), Toast.LENGTH_SHORT).show()
         else {//required fields are filled
             var password = etPassword?.text.toString()
             var confirmPassword = etConfirmPassword?.text.toString()
@@ -73,7 +73,7 @@ class SignupActivity : AppCompatActivity() {
                     User(firstName, lastName, email, username, password) //create the user object
                 registerUser(user)
             } else
-                Toast.makeText(this, "Password mismatch", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, resources.getString(R.string.passwordMissmatch), Toast.LENGTH_SHORT).show()
         }
     }
 

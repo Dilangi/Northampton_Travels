@@ -20,7 +20,7 @@ import org.json.JSONException
 import org.json.JSONObject
 
 class ProfileActivity : AppCompatActivity() {
-    var updateUser = "${Constant.BASE_URL}${Constant.UPDATE_USER_PATH}"
+    var updateUser = "${Constant.BASE_URL}${Constant.UPDATE_USER}"
 
     //initiate variable
     private var username: String? = ""

@@ -254,9 +254,11 @@
             android:background="@drawable/bg_reply"
             android:padding="@dimen/twenty"
             android:text=""
+            android:textColor="@color/white"
             android:layout_marginVertical="@dimen/ten"
             android:layout_marginLeft="@dimen/fifty"
             android:layout_marginRight="@dimen/ten"/>
+
 
     </LinearLayout>
 </LinearLayout>

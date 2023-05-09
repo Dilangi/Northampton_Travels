@@ -59,12 +59,20 @@
     <string name="reply">reply</string>
     <string name="edit">edit</string>
     <string name="delete">delete</string>
+    <string name="update">Update</string>
 
     <!--    warnings-->
     <string name="selectPackage">කරුණාකර පැකේජය තෝරන්න</string>
     <string name="addRating">කරුණාකර ශ්‍රේණිගත කිරීම එක් කරන්න</string>
     <string name = "alreadyHere">ඔබ දැනටමත් මෙහි සිටී</string>
     <string name = "noLoading">Cannot load! Retry</string>
+    <string name = "commentPlease">Please type a reply</string>
+    <string name = "passwordMissmatch">Password mismatch</string>
+    <string name = "emailPlease">Please Enter Email</string>
+    <string name = "confirmPasswordPlease">Please Re-enter Password</string>
+    <string name = "passwordPlease">Please Enter Password</string>
+    <string name = "usernamePlease">Please Enter Username</string>
+    <string name = "firstNamePlease">Please Enter First Name</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

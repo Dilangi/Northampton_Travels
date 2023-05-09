@@ -17,6 +17,7 @@
     <string name="next">Next</string>
     <string name="save">Save</string>
     <string name="confirm">Confirm</string>
+    <string name="update">Update</string>
 
     <string name="myReview">My Reviews</string>
     <string name="reviews">Reviews</string>
@@ -61,8 +62,15 @@
     <!--    warnings-->
     <string name="selectPackage">Please Select Package</string>
     <string name="addRating">Please Add Rating</string>
-    <string name = "alreadyHere">You are already here</string>
-    <string name = "noLoading">Cannot load! Retry</string>
+    <string name="alreadyHere">You are already here</string>
+    <string name="noLoading">Cannot load! Retry</string>
+    <string name="commentPlease">Please type a reply</string>
+    <string name="passwordMissmatch">Password mismatch</string>
+    <string name="emailPlease">Please Enter Email</string>
+    <string name="confirmPasswordPlease">Please Re-enter Password</string>
+    <string name="passwordPlease">Please Enter Password</string>
+    <string name="usernamePlease">Please Enter Username</string>
+    <string name="firstNamePlease">Please Enter First Name</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

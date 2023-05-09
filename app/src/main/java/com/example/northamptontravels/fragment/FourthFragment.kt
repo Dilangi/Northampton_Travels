@@ -17,8 +17,7 @@ class FourthFragment : Fragment() {
     var etReview: EditText? = null
     var ratingBar: AppCompatRatingBar? = null
     var ratingAccommodation: Float? = 0f
-    val bundle = arguments
-    var reviewData = bundle?.getParcelable<Review>("data")
+    var reviewData: Review? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +35,7 @@ class FourthFragment : Fragment() {
         //assign UI components to variables
         etReview = getView()?.findViewById(R.id.etReview)
         ratingBar = getView()?.findViewById(R.id.ratingBar)
-
+        reviewData = arguments?.getParcelable<Review>("data")
         //listener for rating bar
         ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             ratingAccommodation = ratingBar.rating

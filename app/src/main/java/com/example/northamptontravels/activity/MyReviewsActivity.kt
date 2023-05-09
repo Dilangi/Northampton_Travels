@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatButton
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.AuthFailureError
@@ -125,6 +126,12 @@ class MyReviewsActivity : AppCompatActivity() {
         val commentsAdapter = ReviewAdapter(reviewList, false)
         rvReviews!!.layoutManager = LinearLayoutManager(this)
         rvReviews!!.adapter = commentsAdapter
+        rvReviews!!.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
     }
 
     //set navigation drawermenu
