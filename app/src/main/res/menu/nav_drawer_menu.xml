@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:title="@string/home"/>
     <item android:id="@+id/addReview"
         android:title="@string/addReview"/>
     <item android:id="@+id/myReviews"
         android:title="@string/myReview"/>
-    <item android:id="@+id/reviews"
-        android:title="@string/reviews"/>
     <item android:id="@+id/editProfile"
         android:title="@string/editProfile"/>
     <item android:id="@+id/logout"

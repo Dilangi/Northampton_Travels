@@ -19,6 +19,7 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
+import com.example.northamptontravels.activity.UpdateReviewActivity
 import com.example.northamptontravels.entity.Review
 import com.example.northamptontravels.fragment.FirstFragment
 import com.example.northamptontravels.fragment.FourthFragment
@@ -151,6 +152,9 @@ class AddReviewActivity : AppCompatActivity() {
             val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
             reviewData.author = preferences.getString("username", "")!!
 
+            reviewData.likedSet = ""
+            reviewData.dislikedSet = ""
+
             //request for HTTP call
             addReview()
         }
@@ -219,17 +223,19 @@ class AddReviewActivity : AppCompatActivity() {
     //set navigation drawer menu
     private fun setMenu(itemId: Int) {
         when(itemId){
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
             R.id.addReview-> {
                 //direct to Addd Review page
                 Toast.makeText(this, "Already there", Toast.LENGTH_SHORT).show()
             }
             R.id.myReviews-> {
-                //todo set reviews list by reviews of user
-//                    setMyReviews()
-            }
-            R.id.reviews-> {
-                //todo set all posted reviews for particular package
-//                    setReviews()
+                //direct to MyReviews page
+                val intent = Intent(this, MyReviewsActivity::class.java)
+                startActivity(intent)
             }
             R.id.editProfile-> {
                 //direct to Profile Activity
@@ -237,8 +243,7 @@ class AddReviewActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.logout-> {
-                //todo confirmation and logout
-//                    showDialog()
+                UpdateReviewActivity.showDialog(this)
             }
         }
     }

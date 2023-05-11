@@ -22,6 +22,8 @@ class Review: Parcelable {
     var reply: String=""
      var likes: Int = 0
     var dislike: Int= 0
+    var likedSet: String=""
+    var dislikedSet: String=""
 
     constructor(parcel: Parcel) : this(
         parcel.readInt()?:  0,
@@ -39,7 +41,9 @@ class Review: Parcelable {
         parcel.readFloat() ?: 0f,
         parcel.readString() ?: "",
         parcel.readInt() ?:0,
-        parcel.readInt() ?:0
+        parcel.readInt() ?:0,
+        parcel.readString() ?: "",
+        parcel.readString() ?: "",
     )
 //    {
 //        packagesName = parcel.readString()!!
@@ -75,9 +79,12 @@ class Review: Parcelable {
         accommodationRating: Float,
         reply: String,
         likes: Int,
-        dislike: Int
+        dislike: Int,
+        likedSet: String,
+        dislikedSet: String
 
     ) {
+        this.reviewId =reviewId
         this.packagesName =packagesName
         this.overall=overall
         this.author=author
@@ -93,6 +100,8 @@ class Review: Parcelable {
         this.reply=reply
         this.likes=likes
         this.dislike=dislike
+        this.likedSet=likedSet
+        this.dislikedSet=dislikedSet
     }
 
     constructor()
@@ -114,6 +123,8 @@ class Review: Parcelable {
         parcel.writeString(reply)
         parcel.writeInt(likes)
         parcel.writeInt(dislike)
+        parcel.writeString(likedSet)
+        parcel.writeString(dislikedSet)
     }
 
     override fun describeContents(): Int {

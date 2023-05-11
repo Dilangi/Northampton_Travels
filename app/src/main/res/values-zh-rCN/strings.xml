@@ -20,6 +20,8 @@
     <string name="save">节省</string>
     <string name="confirm">确认</string>
 
+
+    <string name="home">Home</string>
     <string name="myReview">我的评论</string>
     <string name="reviews">点评</string>
     <string name="editProfile">编辑个人资料</string>
@@ -73,6 +75,8 @@
     <string name = "passwordPlease">Please Enter Password</string>
     <string name = "usernamePlease">Please Enter Username</string>
     <string name = "firstNamePlease">Please Enter First Name</string>
+    <string name="deleteConfirmation">Do you want to delete the review?</string>
+    <string name="logoutConfirmation">Do you want to logout?</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

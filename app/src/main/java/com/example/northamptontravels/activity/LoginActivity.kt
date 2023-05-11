@@ -127,7 +127,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("email", user.email)
         editor.putString("firstName", user.firstName)
         editor.putString("lastName", user.lastName)
-        editor.putBoolean("isAuthor", isAdmin!!)
+        editor.putBoolean("isAdmin", isAdmin!!)
         editor.apply()
         editor.commit()
     }

@@ -34,7 +34,7 @@ class ReplyActivity : AppCompatActivity() {
 
 
     val TheChannelID = "ChannelID"
-    val TheChannelName = "ChannelName"
+    val TheChannelName = "ReviewComment"
     val TheNotificationID = 0
 
     var replyReview = "${Constant.REVIEW_URL}${Constant.REPLY_REVIEW}"
@@ -72,10 +72,11 @@ class ReplyActivity : AppCompatActivity() {
         }
 
         btnConfirm!!.setOnClickListener{
-            if (etReply?.text.isNullOrEmpty()){
+            if (etReply!!.text.isNullOrEmpty()){
                 Toast.makeText(this, resources.getString(R.string.commentPlease), Toast.LENGTH_SHORT).show()}
-            else
-            setReply(etReply?.text.toString())
+            else {
+                setReply(etReply?.text.toString())
+            }
         }
         btnBack!!.setOnClickListener{
             onBackPressed()
@@ -123,9 +124,9 @@ class ReplyActivity : AppCompatActivity() {
     private fun sendNotification() {
         createTheNotificationChannel()
         val builder = NotificationCompat.Builder(this, TheChannelID)
-            .setContentTitle("Sample Title")
-            .setSmallIcon(R.drawable.ic_launcher_foreground)
-            .setContentText("This is the message body")
+            .setContentTitle("Northampton Travels")
+            .setSmallIcon(R.drawable.ic_tansport_24)
+            .setContentText("Admin commented on review")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .build()
 
@@ -145,7 +146,7 @@ class ReplyActivity : AppCompatActivity() {
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-//    notifManager.notify(TheNotificationID, builder)
+    notifManager.notify(TheNotificationID, builder)
 
         nextView()
     }
@@ -159,7 +160,7 @@ class ReplyActivity : AppCompatActivity() {
     fun createTheNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = TheChannelName
-            val descriptionText = "moving On"
+            val descriptionText = "Reply on customer review"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(TheChannelID, name, importance).apply {
                 description = descriptionText
@@ -172,9 +173,18 @@ class ReplyActivity : AppCompatActivity() {
         }
     }
 
+
+
+
     //set navigation drawermenu
     private fun setMenu(itemId: Int) {
         when (itemId) {
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.addReview -> {
                 //direct to Addd Review page
                 val intent = Intent(this, AddReviewActivity::class.java)
@@ -185,21 +195,17 @@ class ReplyActivity : AppCompatActivity() {
                 val intent = Intent(this, MyReviewsActivity::class.java)
                 startActivity(intent)
             }
-            R.id.reviews -> {
-                //todo set all posted reviews for particular package, make this home
-//                    setReviews()
-            }
             R.id.editProfile -> {
                 //direct to Profile Activity
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
             }
             R.id.logout -> {
-                //todo confirmation and logout
-//                    showDialog()
+                UpdateReviewActivity.showDialog(this)
             }
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle!!.onOptionsItemSelected(item)) {

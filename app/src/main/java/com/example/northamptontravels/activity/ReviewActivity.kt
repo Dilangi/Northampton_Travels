@@ -107,10 +107,15 @@ class ReviewActivity : AppCompatActivity() {
         tvTransport!!.text=review.transport
     }
 
-
     //set navigation drawermenu
     private fun setMenu(itemId: Int) {
         when (itemId) {
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.addReview -> {
                 //direct to Addd Review page
                 val intent = Intent(this, AddReviewActivity::class.java)
@@ -121,21 +126,17 @@ class ReviewActivity : AppCompatActivity() {
                 val intent = Intent(this, MyReviewsActivity::class.java)
                 startActivity(intent)
             }
-            R.id.reviews -> {
-                //todo set all posted reviews for particular package, make this home
-//                    setReviews()
-            }
             R.id.editProfile -> {
                 //direct to Profile Activity
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
             }
             R.id.logout -> {
-                //todo confirmation and logout
-//                    showDialog()
+                UpdateReviewActivity.showDialog(this)
             }
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle!!.onOptionsItemSelected(item)) {

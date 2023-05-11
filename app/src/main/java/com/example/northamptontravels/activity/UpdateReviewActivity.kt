@@ -1,19 +1,20 @@
-package com.example.no
+package com.example.northamptontravels.activity
 
-import com.example.northamptontravels.activity.AddReviewActivity
-import com.example.northamptontravels.activity.MyReviewsActivity
-import com.example.northamptontravels.activity.ProfileActivity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.icu.util.Calendar
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatRatingBar
+import androidx.core.content.ContextCompat.startActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
@@ -21,8 +22,11 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
+import com.example.northamptontravels.activity.AddReviewActivity
+import com.example.northamptontravels.activity.HomeActivity
+import com.example.northamptontravels.activity.MyReviewsActivity
+import com.example.northamptontravels.activity.ProfileActivity
 import com.example.northamptontravels.entity.Review
-import com.example.northamptontravels.entity.User
 import com.example.northamptontravels.utils.Constant
 import com.google.android.material.navigation.NavigationView
 import org.json.JSONException
@@ -51,21 +55,16 @@ class UpdateReviewActivity : AppCompatActivity() {
 
     var visitedDate: String? = ""
     var packagesName: String? = null
-    var overallStars: Float? = 0f
-    var travelStars: Float? = 0f
-    var accommodationStars: Float? = 0f
-    var foodStars: Float? = 0f
-    var review: Review?= Review()
+//    var overallStars: Float? = 0f
+//    var travelStars: Float? = 0f
+//    var accommodationStars: Float? = 0f
+//    var foodStars: Float? = 0f
+//    var review: Review? = null
+    lateinit var spAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_review)
-
-        review= intent.getParcelableExtra<Review>("review")
-//        if(reviewObj!=null)
-//            setReview(reviewObj)
-//        else
-//            Toast.makeText(this,resources.getString(R.string.close),Toast.LENGTH_SHORT).show()
 
         etReview = findViewById(R.id.etReview)
         etFood = findViewById(R.id.etFood)
@@ -96,15 +95,22 @@ class UpdateReviewActivity : AppCompatActivity() {
         }
 
         val packageList =resources.getStringArray(R.array.tourPackage)
-        val spAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,packageList)
+         spAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,packageList)
         spPackage?.adapter=spAdapter
+
+        var review= intent.getParcelableExtra<Review>("review")
+        if(review!=null)
+            setReview(review!!)
+        else
+            Toast.makeText(this,resources.getString(R.string.close),Toast.LENGTH_SHORT).show()
+
 
         //listener for the spinner
         spPackage?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                packagesName= adapterView!!.getItemAtPosition(position).toString()
-                review!!.packagesName= packagesName as String
+//                packagesName= adapterView!!.getItemAtPosition(position)
+                review!!.packagesName= adapterView!!.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -113,26 +119,26 @@ class UpdateReviewActivity : AppCompatActivity() {
 
         //listener for rating bar
         ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            overallStars = ratingBar.rating
-            review!!.overallRating= overallStars as Float
+//            overallStars = ratingBar.rating
+            review!!.overallRating= ratingBar.rating
         }
         ratingFood?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            foodStars = ratingBar.rating
-            review!!.foodRating= foodStars as Float
+//            foodStars = ratingBar.rating
+            review!!.foodRating= ratingFood!!.rating
         }
         ratingAccommodation?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            accommodationStars = ratingBar.rating
-            review!!.accommodationRating= accommodationStars as Float
+//            accommodationStars = ratingBar.rating
+            review!!.accommodationRating= ratingAccommodation!!.rating
         }
         ratingTravel?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            travelStars = ratingBar.rating
-            review!!.transportRating= travelStars as Float
+//            travelStars = ratingBar.rating
+            review!!.transportRating= ratingTravel!!.rating
         }
 
 //        dpVisited.setOnDateChangedListener()
         dpVisited?.setOnClickListener()
         {
-            getVisitedDate()
+            getVisitedDate(review!!)
         }
 
         //set action listener for tap on button
@@ -142,7 +148,7 @@ class UpdateReviewActivity : AppCompatActivity() {
         btnUpdate!!.setOnClickListener {
             if(packagesName==packageList[0])
                 Toast.makeText(this,resources.getString(R.string.selectPackage),Toast.LENGTH_SHORT).show()
-            else if(overallStars==0f || foodStars==0f || travelStars==0f || accommodationStars==0f)
+            else if(review!!.overallRating==0f || review!!.foodRating==0f || review!!.transportRating==0f || review!!.accommodationRating==0f)
                 Toast.makeText(this,resources.getString(R.string.addRating),Toast.LENGTH_SHORT).show()
             else{
                 if(!etReview?.text.isNullOrEmpty())
@@ -153,13 +159,29 @@ class UpdateReviewActivity : AppCompatActivity() {
                     review!!.food= etFood!!.text.toString()
                 if(!etTransport?.text.isNullOrEmpty())
                     review!!.transport= etTransport!!.text.toString()
-                updateCall()
-            }}
+                updateCall(review!!)
+            }
+        }
 
     }
 
+    private fun setReview(review: Review) {
+        val spinnerPosition: Int = spAdapter.getPosition(review.packagesName)
+        spPackage!!.setSelection(spinnerPosition)
+        ratingBar!!.rating= review.overallRating
+        ratingFood!!.rating=review.foodRating
+        ratingTravel!!.rating=review.transportRating
+        ratingAccommodation!!.rating=review.accommodationRating
+        tvMonth!!.text=review.visitedDate
+        etReview!!.setText(review.overall)
+        etAccommodation!!.setText(review.accommodation)
+        etFood!!.setText(review.food)
+        etTransport!!.setText(review.transport)
+        Log.d("DILLL", "setReview: "+review.reviewId)
+    }
+
     //pick and set date selected to text view
-    private fun getVisitedDate() {
+    private fun getVisitedDate(review: Review) {
         val calender = Calendar.getInstance()
         val visitedYr = calender.get(Calendar.YEAR)
         val visitedMonth = calender.get(Calendar.MONTH)
@@ -174,7 +196,7 @@ class UpdateReviewActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    private fun updateCall() {
+    private fun updateCall(review: Review) {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
             Method. POST,
@@ -230,6 +252,12 @@ class UpdateReviewActivity : AppCompatActivity() {
     //set navigation drawermenu
     private fun setMenu(itemId: Int) {
         when (itemId) {
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.addReview -> {
                 //direct to Addd Review page
                 val intent = Intent(this, AddReviewActivity::class.java)
@@ -240,26 +268,49 @@ class UpdateReviewActivity : AppCompatActivity() {
                 val intent = Intent(this, MyReviewsActivity::class.java)
                 startActivity(intent)
             }
-            R.id.reviews -> {
-                //todo set all posted reviews for particular package, make this home
-//                    setReviews()
-            }
             R.id.editProfile -> {
                 //direct to Profile Activity
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
             }
             R.id.logout -> {
-                //todo confirmation and logout
-//                    showDialog()
+                showDialog(this)
             }
         }
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle!!.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    companion object {
+        fun showDialog(context: Context) {
+            val builder = AlertDialog.Builder(context)
+
+            // Set the dialog message
+            builder.setMessage(context.resources.getString(R.string.logoutConfirmation))
+                .setCancelable(false)
+                .setPositiveButton(context.resources.getString(R.string.confirm)) { dialog, _ -> // Positive button action
+                    val preferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE)
+                    preferences.edit().clear().apply()
+
+                    dialog.dismiss()
+
+                    //direct to Login page
+                    val intent = Intent(context, LoginActivity::class.java)
+                    context.startActivity(intent)
+                }
+                .setNegativeButton(context.resources.getString(R.string.close)) { dialog, _ -> // Negative button action
+                    dialog.dismiss()
+                }
+
+            // Create and show the dialog box
+            val dialog = builder.create()
+            dialog.show()
+        }
     }
 }

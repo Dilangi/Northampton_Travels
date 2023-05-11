@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatButton
@@ -24,7 +23,6 @@ import com.example.northamptontravels.entity.Review
 import com.example.northamptontravels.utils.Constant
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -123,7 +121,11 @@ class MyReviewsActivity : AppCompatActivity() {
     }
 
     private fun setReview() {
-        val commentsAdapter = ReviewAdapter(reviewList, false)
+        val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
+        val userId = preferences.getInt("userId", 0)
+        val isAdmin = preferences.getBoolean("isAdmin", false)
+
+        val commentsAdapter = ReviewAdapter(reviewList, false, userId.toString(), isAdmin, this)
         rvReviews!!.layoutManager = LinearLayoutManager(this)
         rvReviews!!.adapter = commentsAdapter
         rvReviews!!.addItemDecoration(
@@ -137,17 +139,20 @@ class MyReviewsActivity : AppCompatActivity() {
     //set navigation drawermenu
     private fun setMenu(itemId: Int) {
         when (itemId) {
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
             R.id.addReview -> {
                 //direct to Add Review page
                 val intent = Intent(this, AddReviewActivity::class.java)
                 startActivity(intent)
             }
             R.id.myReviews -> {
-                Toast.makeText(this,resources.getText(R.string.alreadyHere), Toast.LENGTH_SHORT).show()
-            }
-            R.id.reviews -> {
-                //todo set all posted reviews for particular package, make this home
-//                    setReviews()
+                //direct to Add Review page
+                val intent = Intent(this, MyReviewsActivity::class.java)
+                startActivity(intent)
             }
             R.id.editProfile -> {
                 //direct to Profile Activity
@@ -155,8 +160,7 @@ class MyReviewsActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.logout -> {
-                //todo confirmation and logout
-//                    showDialog()
+                UpdateReviewActivity.showDialog(this)
             }
         }
     }

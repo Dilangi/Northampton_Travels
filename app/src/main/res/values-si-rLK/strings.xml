@@ -20,6 +20,8 @@
     <string name="save">සුරකින්න</string>
     <string name="confirm">තහවුරු කරන්න</string>
 
+
+    <string name="home">Home</string>
     <string name="myReview">මගේ සමාලෝචන</string>
     <string name="reviews">සමාලෝචන</string>
     <string name="editProfile">පැතිකඩ සංස්කරණය කරන්න</string>
@@ -73,6 +75,8 @@
     <string name = "passwordPlease">Please Enter Password</string>
     <string name = "usernamePlease">Please Enter Username</string>
     <string name = "firstNamePlease">Please Enter First Name</string>
+    <string name="deleteConfirmation">Do you want to delete the review?</string>
+    <string name="logoutConfirmation">Do you want to logout?</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

@@ -4,9 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatButton
+import androidx.drawerlayout.widget.DrawerLayout
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
 import com.android.volley.VolleyError
@@ -15,6 +18,7 @@ import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.User
 import com.example.northamptontravels.utils.Constant
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
@@ -33,6 +37,9 @@ class ProfileActivity : AppCompatActivity() {
     private var etEmail: EditText? = null
     private var etUsername: EditText? = null
 
+    var toggle: ActionBarDrawerToggle? = null
+    var drawerLayout: DrawerLayout? = null
+    var navView: NavigationView? = null
     private var btnSave: AppCompatButton? = null
     private var btnBack: AppCompatButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +53,20 @@ class ProfileActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.etUsername)
         btnSave = findViewById(R.id.btnSave)
         btnBack = findViewById(R.id.btnBack)
+
+        //set drawer navigation
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navView = findViewById(R.id.navView)
+
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout?.addDrawerListener(toggle!!)
+        toggle!!.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        navView?.setNavigationItemSelectedListener {
+            setMenu(it.itemId)
+            true
+        }
 
         setUserDetails()
 
@@ -145,5 +166,44 @@ class ProfileActivity : AppCompatActivity() {
     private fun nextView() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+    }
+
+
+    //set navigation drawermenu
+    private fun setMenu(itemId: Int) {
+        when (itemId) {
+            R.id.home -> {
+                //direct to Addd Review page
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
+
+            R.id.addReview -> {
+                //direct to Addd Review page
+                val intent = Intent(this, AddReviewActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.myReviews -> {
+                //direct to MyReviews page
+                val intent = Intent(this, MyReviewsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.editProfile -> {
+                //direct to Profile Activity
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.logout -> {
+                UpdateReviewActivity.showDialog(this)
+            }
+        }
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle!!.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
