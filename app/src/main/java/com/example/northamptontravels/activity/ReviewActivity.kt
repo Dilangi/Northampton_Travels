@@ -41,8 +41,6 @@ class ReviewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
-//todo add author field and hide to author else visible
-        //todo consider admin email and keep shared preference admin true
         btnBack= findViewById(R.id.btnBack)
         btnNext= findViewById(R.id.btnNext)
 

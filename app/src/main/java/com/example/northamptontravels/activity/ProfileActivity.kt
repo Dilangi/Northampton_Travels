@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -33,6 +34,7 @@ import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+import kotlin.math.min
 
 class ProfileActivity : AppCompatActivity() {
     var updateUser = "${Constant.BASE_URL}${Constant.UPDATE_USER}"
@@ -129,11 +131,25 @@ class ProfileActivity : AppCompatActivity() {
 
             if (bitmap != null) {
                 ivPhotos!!.setImageBitmap(bitmap)
-                // Save the selectedImageUri to your database or perform further operations
-                val stream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
-                var byteArray = stream.toByteArray()
+
+                // resize image quality
+                val maxSize = 1024 // Maximum size in pixels for width or height
+                val scaleFactor = min(maxSize.toFloat() / bitmap.width, maxSize.toFloat() / bitmap.height)
+
+                val resizedBitmap = Bitmap.createScaledBitmap(
+                    bitmap,
+                    (bitmap.width * scaleFactor).toInt(),
+                    (bitmap.height * scaleFactor).toInt(),
+                    true
+                )
+
+                val quality = 30 // Adjust the quality as needed (0-100)
+                val outputStream = ByteArrayOutputStream()
+                resizedBitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+
+                val byteArray = outputStream.toByteArray()
                 stringImage = Base64.encodeToString(byteArray, Base64.DEFAULT)
+
             }
         }
     }
@@ -228,6 +244,7 @@ class ProfileActivity : AppCompatActivity() {
                 params.put("email", email!!)
                 params.put("username", username!!)
                 params.put("userId", userId.toString()!!)
+                params.put("picture", stringImage!!)
                 return params
             }
         }
