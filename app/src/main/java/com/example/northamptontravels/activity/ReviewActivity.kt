@@ -35,7 +35,6 @@ class ReviewActivity : AppCompatActivity() {
     var tvFood: TextView?= null
     var tvTransport: TextView?= null
     var tvAccommodation: TextView?= null
-    var ivPhotos: ImageView?= null
     var btnBack: AppCompatButton?= null
     var btnNext: AppCompatButton?= null
 

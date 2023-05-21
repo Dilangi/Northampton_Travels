@@ -145,13 +145,14 @@ class ReviewAdapter(
                 liked = false
                 if (reviewDataset[position].likes != 0)
                     reviewDataset[position].likes -= 1
-                reviewDataset[position].likedSet.replace(userId, "")
+                var replacer = "| "+userId
+                reviewDataset[position].likedSet.replace(replacer, "")
             } else {
                 if (!reviewDataset[position].likedSet.contains(userId)) { //user cannot give multiple likes
                     holder.ivLikes.setImageResource(R.drawable.ic_like_filled)
                     liked = true
                     reviewDataset[position].likes += 1
-                    reviewDataset[position].likedSet = reviewDataset[position].likedSet + userId
+                    reviewDataset[position].likedSet = reviewDataset[position].likedSet+ "| " + userId
                 }
             }
             holder.txtLikesCount.text = (reviewDataset[position].likes).toString()
@@ -167,14 +168,15 @@ class ReviewAdapter(
                 disliked = false
                 if (reviewDataset[position].dislike != 0)
                     reviewDataset[position].dislike = reviewDataset[position].dislike - 1
-                reviewDataset[position].dislikedSet.replace(userId, "")
+                var replacer = "| "+userId
+                reviewDataset[position].dislikedSet.replace(replacer, "")
             } else {
                 if (!reviewDataset[position].dislikedSet.contains(userId)) { //user cannot give multiple dislikes
                     holder.ivDislikes.setImageResource(R.drawable.ic_dislike_filled)
                     disliked = true
                     reviewDataset[position].dislike = reviewDataset[position].dislike + 1
                     reviewDataset[position].dislikedSet =
-                        reviewDataset[position].dislikedSet + userId
+                        reviewDataset[position].dislikedSet + "| "+userId
                 }
             }
             holder.txtDislikeCount.text = (reviewDataset[position].dislike).toString()
@@ -278,7 +280,6 @@ class ReviewAdapter(
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    Log.d("Test", "addDislike: " + obj.get("message").toString())
                 } catch (e: JSONException) {
                     e.printStackTrace()
                 }

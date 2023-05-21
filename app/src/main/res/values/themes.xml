@@ -52,6 +52,12 @@
         <item name="android:padding">@dimen/ten</item>
     </style>
 
+    <style name="normalTxt">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginLeft" tools:targetApi="o">@dimen/ten</item>
+        <item name="android:padding">@dimen/ten</item>
+    </style>
+
     <style name="fieldTxt">
         <item name="android:textSize">@dimen/px_fifty</item>
         <item name="android:textColor">@color/black</item>

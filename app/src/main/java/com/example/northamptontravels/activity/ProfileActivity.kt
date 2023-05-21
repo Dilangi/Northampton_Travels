@@ -1,12 +1,21 @@
 package com.example.northamptontravels.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Base64
+import android.util.Log
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.AppCompatButton
 import androidx.drawerlayout.widget.DrawerLayout
@@ -18,15 +27,21 @@ import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.User
 import com.example.northamptontravels.utils.Constant
+import com.google.android.gms.fido.fido2.api.common.RequestOptions
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.ByteArrayOutputStream
 
 class ProfileActivity : AppCompatActivity() {
     var updateUser = "${Constant.BASE_URL}${Constant.UPDATE_USER}"
 
+    private val PICK_IMAGE_REQUEST = 1
+    private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+
     //initiate variable
+    private var stringImage: String? = ""
     private var username: String? = ""
     private var email: String? = ""
     private var lastName: String? = ""
@@ -36,12 +51,15 @@ class ProfileActivity : AppCompatActivity() {
     private var etLastName: EditText? = null
     private var etEmail: EditText? = null
     private var etUsername: EditText? = null
+    private var ivPhotos: ImageView? = null
 
     var toggle: ActionBarDrawerToggle? = null
     var drawerLayout: DrawerLayout? = null
     var navView: NavigationView? = null
     private var btnSave: AppCompatButton? = null
     private var btnBack: AppCompatButton? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -53,6 +71,7 @@ class ProfileActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.etUsername)
         btnSave = findViewById(R.id.btnSave)
         btnBack = findViewById(R.id.btnBack)
+        ivPhotos = findViewById(R.id.ivPhotos)
 
         //set drawer navigation
         drawerLayout = findViewById(R.id.drawer_layout)
@@ -78,7 +97,47 @@ class ProfileActivity : AppCompatActivity() {
         btnBack!!.setOnClickListener {
             nextView()
         }
+
+        activityResultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == Activity.RESULT_OK) {
+                    val data: Intent? = result.data
+                    onActivityResult(PICK_IMAGE_REQUEST, Activity.RESULT_OK, data)
+                }
+            }
+
+        ivPhotos!!.setOnClickListener {
+            getImage()
+        }
     }
+
+    private fun getImage() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        activityResultLauncher.launch(intent)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            val selectedImageUri = data.data
+            val bitmap: Bitmap? = try {
+                MediaStore.Images.Media.getBitmap(contentResolver, selectedImageUri)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+
+            if (bitmap != null) {
+                ivPhotos!!.setImageBitmap(bitmap)
+                // Save the selectedImageUri to your database or perform further operations
+                val stream = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+                var byteArray = stream.toByteArray()
+                stringImage = Base64.encodeToString(byteArray, Base64.DEFAULT)
+            }
+        }
+    }
+
 
     private fun setUserDetails() {
         val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
@@ -87,10 +146,20 @@ class ProfileActivity : AppCompatActivity() {
         username = preferences.getString("username", "")
         email = preferences.getString("email", "")
         userId = preferences.getInt("userId", 0)
+        stringImage = preferences.getString("picture", "")
         etFirstName!!.setText(firstName)
         etLastName!!.setText(lastName)
         etUsername!!.setText(username)
         etEmail!!.setText(email)
+        setImage()
+    }
+
+    private fun setImage() {
+        if (stringImage != "") {
+            val imageBytes = Base64.decode(stringImage, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+            ivPhotos!!.setImageBitmap(bitmap)
+        }
     }
 
     private fun updateDetails() {
@@ -116,6 +185,10 @@ class ProfileActivity : AppCompatActivity() {
             username = etUsername?.text.toString()
             editor.putString("username", username)
         }
+
+        if (stringImage != "") {
+            editor.putString("picture", stringImage)
+        }
         editor.apply()
         editor.commit()
 
@@ -130,7 +203,7 @@ class ProfileActivity : AppCompatActivity() {
             updateUser,
             Response.Listener<String> { response ->
                 try {
-                    Toast.makeText(this, "Login Success!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Update Success!", Toast.LENGTH_LONG).show()
                     nextView()
                 } catch (e: JSONException) {
                     e.printStackTrace()

@@ -3,7 +3,6 @@ package com.example.northamptontravels.fragment
 import android.app.DatePickerDialog
 import android.icu.util.Calendar
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.Review
 
 class FirstFragment : Fragment() {
-    //todo image upload
     //initiate variable
     var spPackage: Spinner? = null
     var etReview: EditText? = null
@@ -75,7 +73,6 @@ class FirstFragment : Fragment() {
             ratingAll = ratingBar.rating
         }
 
-//        dpVisited.setOnDateChangedListener()
         dpVisited?.setOnClickListener()
         {
             getVisitedDate()
@@ -114,12 +111,10 @@ class FirstFragment : Fragment() {
             ).show()
         } else {
             val packages = resources.getStringArray(R.array.tourPackage)
-            Log.d("DILLL", "getFirstReviewData: "+packagePosition+" name"+ packages[packagePosition!!])
             reviewData.packagesName = packages[packagePosition!!]
             reviewData.overall = etReview?.text.toString()
             reviewData.overallRating = ratingAll!!
             reviewData.visitedDate = visitedDate!!
-            //todo image upload
         }
         return reviewData
 

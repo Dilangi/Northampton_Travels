@@ -29,6 +29,7 @@ import org.json.JSONObject
 class MyReviewsActivity : AppCompatActivity() {
 
     var getMyReviews = "${Constant.REVIEW_URL}${Constant.MY_REVIEWS}"
+    var getAllReviews = "${Constant.REVIEW_URL}${Constant.ALL_REVIEWS}"
 
     var toggle: ActionBarDrawerToggle? = null
     var drawerLayout: DrawerLayout? = null
@@ -59,21 +60,74 @@ class MyReviewsActivity : AppCompatActivity() {
 
         val preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE)
         author = preferences.getString("username", "")
+        var isAdmin = preferences.getBoolean("isAdmin", false)
 
-        getReview()
+        if (isAdmin)
+            getAllReview()
+        else
+            getReview()
         //set action listener for tap on button
         btnReview!!.setOnClickListener {
             //direct to Addd Review page
             val intent = Intent(this, AddReviewActivity::class.java)
             startActivity(intent)
         }
+    }
 
+    private fun getAllReview() {
+        reviewList = ArrayList()
+        val queue = Volley.newRequestQueue(this)
+        val stringRequest = object : StringRequest(
+            Method.POST,
+            getAllReviews,
+            Response.Listener<String> { response ->
+                try {
+                    val obj = JSONObject(response)
+                    if (obj.get("error") == false) {
+                        val objArray =
+                            obj.getJSONArray("review") //extract data array from json string
 
+                        //get review from json array and add into arrayList
+                        for (i in 0..objArray.length() - 1) {
+                            val gson = Gson()
+                            val review: Review =
+                                gson.fromJson(
+                                    objArray.getJSONObject(i).toString(),
+                                    Review::class.java
+                                )
+                            reviewList.add(review)
+                        }
+                    }
+
+                    setReview()
+
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            object : Response.ErrorListener {
+                override fun onErrorResponse(error: VolleyError?) {
+                    if (error != null) {
+                        Toast.makeText(
+                            applicationContext,
+                            error.message.toString(),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }) {
+            @Throws(AuthFailureError::class)
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>()
+                return params
+            }
+        }
+        queue.add(stringRequest)
     }
 
     //HTTP request to get comments where author = username
     private fun getReview() {
-        reviewList= ArrayList()
+        reviewList = ArrayList()
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
             Method.POST,
@@ -81,16 +135,21 @@ class MyReviewsActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
                 try {
                     val obj = JSONObject(response)
-                    if(obj.get("error")==false){
-                        val objArray = obj.getJSONArray("review") //extract data array from json string
+                    if (obj.get("error") == false) {
+                        val objArray =
+                            obj.getJSONArray("review") //extract data array from json string
 
                         //get review from json array and add into arrayList
-                        for (i in 0..objArray.length()-1) {
-                        val gson = Gson()
-                        val review: Review =
-                            gson.fromJson(objArray.getJSONObject(i).toString(), Review::class.java)
-                        reviewList.add(review)
-                    }}
+                        for (i in 0..objArray.length() - 1) {
+                            val gson = Gson()
+                            val review: Review =
+                                gson.fromJson(
+                                    objArray.getJSONObject(i).toString(),
+                                    Review::class.java
+                                )
+                            reviewList.add(review)
+                        }
+                    }
 
                     setReview()
 

@@ -49,8 +49,8 @@
                 android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_hotel_24"
-                android:contentDescription="@string/accommodation"/>
+                android:src="@drawable/ic_tansport_24"
+                android:contentDescription="@string/transport"/>
             <ImageView
                 android:layout_width="wrap_content"
                 android:src="@drawable/ic_arrow_24"
@@ -62,8 +62,8 @@
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_tansport_24"
-            android:contentDescription="@string/transport"/>
+            android:src="@drawable/ic_hotel_24"
+            android:contentDescription="@string/accommodation"/>
         </LinearLayout>
 
 

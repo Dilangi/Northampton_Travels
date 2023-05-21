@@ -45,23 +45,6 @@ class Review: Parcelable {
         parcel.readString() ?: "",
         parcel.readString() ?: "",
     )
-//    {
-//        packagesName = parcel.readString()!!
-//        overall = parcel.readString()!!
-//        author = parcel.readString()!!
-//        visitedDate = parcel.readString()!!
-//        postedDate = parcel.readString()!!
-//        overallRating = parcel.readFloat()
-//        food = parcel.readString()!!
-//        foodRating = parcel.readFloat()
-//        transport = parcel.readString()!!
-//        transportRating = parcel.readFloat()
-//        accommodation = parcel.readString()!!
-//        accommodationRating = parcel.readFloat()
-//        reply = parcel.readString()!!
-//        likes = parcel.readInt()
-//        dislike = parcel.readInt()
-//    }
 
     constructor(
         reviewId: Int,

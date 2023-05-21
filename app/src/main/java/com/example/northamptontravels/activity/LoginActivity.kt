@@ -2,7 +2,6 @@ package com.example.northamptontravels.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -61,7 +60,8 @@ class LoginActivity : AppCompatActivity() {
             var username = etUsername?.text.toString()
             var password = etPassword?.text.toString()
 
-            isValidUser(username, password) }
+            isValidUser(username, password)
+        }
     }
 
     private fun isValidUser(username: String, password: String) {
@@ -76,14 +76,13 @@ class LoginActivity : AppCompatActivity() {
 
                     val gson = Gson()
                     val user: User = gson.fromJson(obj.get("user").toString(), User::class.java)
-                    if(password==user.password){
+                    if (password == user.password) {
                         Toast.makeText(this, "Login Success!", Toast.LENGTH_LONG).show()
                         saveUser(user)
                         //direct to Home page
-                            val intent = Intent(this, HomeActivity::class.java)
-                            startActivity(intent)
-                        }
-                        else
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                    } else
                         Toast.makeText(this, "Incorrect credentials", Toast.LENGTH_SHORT).show()
 
                 } catch (e: JSONException) {
@@ -117,8 +116,8 @@ class LoginActivity : AppCompatActivity() {
     //put user details in shared preferences
     private fun saveUser(user: User) {
         var isAdmin: Boolean? = false
-        if(user.email.contains("northamptontravels"))
-            isAdmin=true
+        if (user.email.contains("northamptontravels"))
+            isAdmin = true
 
         val preferences = getSharedPreferences("preferences", MODE_PRIVATE)
         val editor = preferences.edit()
@@ -127,6 +126,7 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("email", user.email)
         editor.putString("firstName", user.firstName)
         editor.putString("lastName", user.lastName)
+        editor.putString("picture", user.picture)
         editor.putBoolean("isAdmin", isAdmin!!)
         editor.apply()
         editor.commit()

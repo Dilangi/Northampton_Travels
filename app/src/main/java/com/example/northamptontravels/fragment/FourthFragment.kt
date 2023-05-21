@@ -10,8 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatRatingBar
 import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.Review
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+
 class FourthFragment : Fragment() {
     //initiate variable
     var etReview: EditText? = null
@@ -24,7 +23,6 @@ class FourthFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         return inflater.inflate(R.layout.fragment_fourth, container, false)
     }
 

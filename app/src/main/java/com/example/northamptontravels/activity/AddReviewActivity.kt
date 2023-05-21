@@ -36,15 +36,15 @@ class AddReviewActivity : AppCompatActivity() {
 
     var addReview = "${Constant.REVIEW_URL}${Constant.INSERT_REVIEW}"
 
-    var  btnNext: AppCompatButton? = null
-    var  btnBack: AppCompatButton? = null
-    var toggle: ActionBarDrawerToggle?=null
-    var drawerLayout: DrawerLayout?=null
-    var navView: NavigationView?=null
-    var ivAll: ImageView?=null
-    var ivFood: ImageView?=null
-    var ivAccommodation: ImageView?=null
-    var ivTransport: ImageView?=null
+    var btnNext: AppCompatButton? = null
+    var btnBack: AppCompatButton? = null
+    var toggle: ActionBarDrawerToggle? = null
+    var drawerLayout: DrawerLayout? = null
+    var navView: NavigationView? = null
+    var ivAll: ImageView? = null
+    var ivFood: ImageView? = null
+    var ivAccommodation: ImageView? = null
+    var ivTransport: ImageView? = null
 
     val fragment1 = FirstFragment()
     val fragment2 = SecondFragment()
@@ -53,39 +53,41 @@ class AddReviewActivity : AppCompatActivity() {
     var fragment: Fragment? = fragment1
     lateinit var reviewData: Review
     val bundle = Bundle()
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_review)
 
+        //initial elements
         ivAll = findViewById(R.id.ivAll)
         ivTransport = findViewById(R.id.ivTransport)
         ivFood = findViewById(R.id.ivFood)
         ivAccommodation = findViewById(R.id.ivAccommodation)
-    btnNext = findViewById(R.id.btnNext)
-    btnBack = findViewById(R.id.btnBack)
-    drawerLayout=findViewById(R.id.drawerLayout)
-    navView = findViewById(R.id.navView)
+        btnNext = findViewById(R.id.btnNext)
+        btnBack = findViewById(R.id.btnBack)
+        drawerLayout = findViewById(R.id.drawerLayout)
+        navView = findViewById(R.id.navView)
 
-    toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open, R.string.close)
-    drawerLayout?.addDrawerListener(toggle!!)
-    toggle!!.syncState()
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout?.addDrawerListener(toggle!!)
+        toggle!!.syncState()
 
-    supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    navView?.setNavigationItemSelectedListener {
-        setMenu(it.itemId)
-        true
-    }
-
-    setFragment()
-    btnNext!!.setOnClickListener{
-        getFragment()
-    }
-    btnBack!!.setOnClickListener{
-        supportFragmentManager.beginTransaction().apply {
-            backPressed()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        navView?.setNavigationItemSelectedListener {
+            setMenu(it.itemId)
+            true
         }
-    }
+
+        setFragment()
+        btnNext!!.setOnClickListener {
+            getFragment()
+        }
+        btnBack!!.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                backPressed()
+            }
+        }
 
     }
 
@@ -96,11 +98,11 @@ class AddReviewActivity : AppCompatActivity() {
             ivAccommodation!!.setBackgroundResource(R.drawable.bg_btn_navigate)
             ivTransport!!.setBackgroundResource(R.drawable.grey_btn)
             btnNext!!.text = resources.getString(R.string.next)
-        }else if(fragment == fragment3) {
+        } else if (fragment == fragment3) {
             fragment = fragment2
             ivFood!!.setBackgroundResource(R.drawable.bg_btn_navigate)
             ivAccommodation!!.setBackgroundResource(R.drawable.grey_btn)
-        }else if(fragment == fragment2) {
+        } else if (fragment == fragment2) {
             fragment = fragment1
             ivAll!!.setBackgroundResource(R.drawable.bg_btn_navigate)
             ivFood!!.setBackgroundResource(R.drawable.grey_btn)
@@ -110,7 +112,7 @@ class AddReviewActivity : AppCompatActivity() {
 
     //set next Fragment and change selected imageview on button click
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun getFragment(){
+    private fun getFragment() {
 
         if (fragment == fragment1) {
             fragment = fragment2
@@ -119,19 +121,19 @@ class AddReviewActivity : AppCompatActivity() {
 
             //get data from fragment and set into next fragment
             reviewData = fragment1.getFirstReviewData()
-            bundle.putParcelable("data",reviewData)
+            bundle.putParcelable("data", reviewData)
             fragment2.arguments = bundle
 
-        }else if(fragment == fragment2) {
+        } else if (fragment == fragment2) {
             fragment = fragment3
             ivAccommodation!!.setBackgroundResource(R.drawable.bg_btn_navigate)
             ivFood!!.setBackgroundResource(R.drawable.grey_btn)
 
             //get data from fragment and set into next fragment
             reviewData = fragment2.getSecondReviewData()
-            bundle.putParcelable("data",reviewData)
+            bundle.putParcelable("data", reviewData)
             fragment3.arguments = bundle
-        }else if(fragment == fragment3) {
+        } else if (fragment == fragment3) {
             fragment = fragment4
             ivTransport!!.setBackgroundResource(R.drawable.bg_btn_navigate)
             ivAccommodation!!.setBackgroundResource(R.drawable.grey_btn)
@@ -139,9 +141,9 @@ class AddReviewActivity : AppCompatActivity() {
 
             //get data from fragment and set into next fragment
             reviewData = fragment3.getThirdReviewData()
-            bundle.putParcelable("data",reviewData)
+            bundle.putParcelable("data", reviewData)
             fragment4.arguments = bundle
-        }else if(fragment == fragment4){
+        } else if (fragment == fragment4) {
             reviewData = fragment4.getForthReviewData()
 
             val currentDate = LocalDate.now()
@@ -170,7 +172,7 @@ class AddReviewActivity : AppCompatActivity() {
     private fun addReview() {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
-            Method. POST,
+            Method.POST,
             addReview,
             Response.Listener<String> { response ->
                 try {
@@ -222,34 +224,34 @@ class AddReviewActivity : AppCompatActivity() {
 
     //set navigation drawer menu
     private fun setMenu(itemId: Int) {
-        when(itemId){
+        when (itemId) {
             R.id.home -> {
                 //direct to Addd Review page
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
-            R.id.addReview-> {
+            R.id.addReview -> {
                 //direct to Addd Review page
                 Toast.makeText(this, "Already there", Toast.LENGTH_SHORT).show()
             }
-            R.id.myReviews-> {
+            R.id.myReviews -> {
                 //direct to MyReviews page
                 val intent = Intent(this, MyReviewsActivity::class.java)
                 startActivity(intent)
             }
-            R.id.editProfile-> {
+            R.id.editProfile -> {
                 //direct to Profile Activity
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
             }
-            R.id.logout-> {
+            R.id.logout -> {
                 UpdateReviewActivity.showDialog(this)
             }
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle!!.onOptionsItemSelected(item)){
+        if (toggle!!.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)

@@ -29,7 +29,6 @@ import com.google.android.material.navigation.NavigationView
 import org.json.JSONException
 import org.json.JSONObject
 
-//todo send notification once post reply
 class ReplyActivity : AppCompatActivity() {
 
 
@@ -38,20 +37,20 @@ class ReplyActivity : AppCompatActivity() {
     val TheNotificationID = 0
 
     var replyReview = "${Constant.REVIEW_URL}${Constant.REPLY_REVIEW}"
-    var reviewId: Int?=0
+    var reviewId: Int? = 0
 
     var toggle: ActionBarDrawerToggle? = null
     var drawerLayout: DrawerLayout? = null
     var navView: NavigationView? = null
     var btnConfirm: AppCompatButton? = null
     var btnBack: AppCompatButton? = null
-    var etReply: EditText?= null
+    var etReply: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reply)
 
-         reviewId = intent.getIntExtra("reviewId", 0) // get reviewId from adapter item
+        reviewId = intent.getIntExtra("reviewId", 0) // get reviewId from adapter item
 
         etReply = findViewById(R.id.etReply)
         btnConfirm = findViewById(R.id.btnConfirm)
@@ -71,14 +70,18 @@ class ReplyActivity : AppCompatActivity() {
             true
         }
 
-        btnConfirm!!.setOnClickListener{
-            if (etReply!!.text.isNullOrEmpty()){
-                Toast.makeText(this, resources.getString(R.string.commentPlease), Toast.LENGTH_SHORT).show()}
-            else {
+        btnConfirm!!.setOnClickListener {
+            if (etReply!!.text.isNullOrEmpty()) {
+                Toast.makeText(
+                    this,
+                    resources.getString(R.string.commentPlease),
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
                 setReply(etReply?.text.toString())
             }
         }
-        btnBack!!.setOnClickListener{
+        btnBack!!.setOnClickListener {
             onBackPressed()
         }
 
@@ -87,7 +90,7 @@ class ReplyActivity : AppCompatActivity() {
     private fun setReply(reply: String) {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
-            Method. POST,
+            Method.POST,
             replyReview,
             Response.Listener<String> { response ->
                 try {
@@ -113,7 +116,7 @@ class ReplyActivity : AppCompatActivity() {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
                 params.put("reviewId", reviewId.toString())
-                params.put("reply",reply)
+                params.put("reply", reply)
                 return params
             }
         }
@@ -137,16 +140,9 @@ class ReplyActivity : AppCompatActivity() {
                 Manifest.permission.POST_NOTIFICATIONS
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
-    notifManager.notify(TheNotificationID, builder)
+        notifManager.notify(TheNotificationID, builder)
 
         nextView()
     }
@@ -172,9 +168,6 @@ class ReplyActivity : AppCompatActivity() {
             notificationManager.createNotificationChannel(channel)
         }
     }
-
-
-
 
     //set navigation drawermenu
     private fun setMenu(itemId: Int) {

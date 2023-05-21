@@ -15,9 +15,10 @@ class User(
 
     constructor(
         firstName: String, lastName: String, email: String, username: String,
-        userId: Int
+        userId: Int, picture: String
     ) : this(firstName, lastName, email, username) {
         this.userId = userId
+        this.picture = picture
     }
 
     var firstName: String = firstName
@@ -29,6 +30,8 @@ class User(
     var username: String = username
 
      var userId: Int = 0
+
+    var picture: String = ""
 
      var password: String = ""
 }

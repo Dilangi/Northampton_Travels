@@ -11,11 +11,7 @@ import androidx.appcompat.widget.AppCompatRatingBar
 import com.example.northamptontravels.R
 import com.example.northamptontravels.entity.Review
 
-
 class SecondFragment : Fragment() {
-
-
-
     //initiate variable
     var etReview: EditText? = null
     var ratingBar: AppCompatRatingBar? = null

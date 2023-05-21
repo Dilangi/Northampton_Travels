@@ -14,7 +14,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatRatingBar
-import androidx.core.content.ContextCompat.startActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.android.volley.AuthFailureError
 import com.android.volley.Response
@@ -22,10 +21,6 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.northamptontravels.R
-import com.example.northamptontravels.activity.AddReviewActivity
-import com.example.northamptontravels.activity.HomeActivity
-import com.example.northamptontravels.activity.MyReviewsActivity
-import com.example.northamptontravels.activity.ProfileActivity
 import com.example.northamptontravels.entity.Review
 import com.example.northamptontravels.utils.Constant
 import com.google.android.material.navigation.NavigationView
@@ -55,11 +50,6 @@ class UpdateReviewActivity : AppCompatActivity() {
 
     var visitedDate: String? = ""
     var packagesName: String? = null
-//    var overallStars: Float? = 0f
-//    var travelStars: Float? = 0f
-//    var accommodationStars: Float? = 0f
-//    var foodStars: Float? = 0f
-//    var review: Review? = null
     lateinit var spAdapter: ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,15 +58,15 @@ class UpdateReviewActivity : AppCompatActivity() {
 
         etReview = findViewById(R.id.etReview)
         etFood = findViewById(R.id.etFood)
-        etTransport= findViewById(R.id.etTransport)
+        etTransport = findViewById(R.id.etTransport)
         etAccommodation = findViewById(R.id.etAccommodation)
-        ratingBar= findViewById(R.id.ratingBar)
-        ratingFood= findViewById(R.id.ratingFood)
-        ratingTravel= findViewById(R.id.ratingTravel)
-        ratingAccommodation= findViewById(R.id.ratingAccommodation)
-        tvMonth= findViewById(R.id.tvMonth)
-        dpVisited= findViewById(R.id.dpVisited)
-        spPackage= findViewById(R.id.spPackage)
+        ratingBar = findViewById(R.id.ratingBar)
+        ratingFood = findViewById(R.id.ratingFood)
+        ratingTravel = findViewById(R.id.ratingTravel)
+        ratingAccommodation = findViewById(R.id.ratingAccommodation)
+        tvMonth = findViewById(R.id.tvMonth)
+        dpVisited = findViewById(R.id.dpVisited)
+        spPackage = findViewById(R.id.spPackage)
         btnBack = findViewById(R.id.btnBack)
         btnUpdate = findViewById(R.id.btnUpdate)
 
@@ -94,45 +84,47 @@ class UpdateReviewActivity : AppCompatActivity() {
             true
         }
 
-        val packageList =resources.getStringArray(R.array.tourPackage)
-         spAdapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,packageList)
-        spPackage?.adapter=spAdapter
+        val packageList = resources.getStringArray(R.array.tourPackage)
+        spAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, packageList)
+        spPackage?.adapter = spAdapter
 
-        var review= intent.getParcelableExtra<Review>("review")
-        if(review!=null)
+        var review = intent.getParcelableExtra<Review>("review")
+        if (review != null)
             setReview(review!!)
         else
-            Toast.makeText(this,resources.getString(R.string.close),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.close), Toast.LENGTH_SHORT).show()
 
 
         //listener for the spinner
         spPackage?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
-            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//                packagesName= adapterView!!.getItemAtPosition(position)
-                review!!.packagesName= adapterView!!.getItemAtPosition(position).toString()
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                review!!.packagesName = adapterView!!.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                packagesName=packageList[0]
-            }}
+                packagesName = packageList[0]
+            }
+        }
 
         //listener for rating bar
         ratingBar?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-//            overallStars = ratingBar.rating
-            review!!.overallRating= ratingBar.rating
+            review!!.overallRating = ratingBar.rating
         }
         ratingFood?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-//            foodStars = ratingBar.rating
-            review!!.foodRating= ratingFood!!.rating
+            review!!.foodRating = ratingFood!!.rating
         }
         ratingAccommodation?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-//            accommodationStars = ratingBar.rating
-            review!!.accommodationRating= ratingAccommodation!!.rating
+            review!!.accommodationRating = ratingAccommodation!!.rating
         }
         ratingTravel?.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-//            travelStars = ratingBar.rating
-            review!!.transportRating= ratingTravel!!.rating
+            review!!.transportRating = ratingTravel!!.rating
         }
 
 //        dpVisited.setOnDateChangedListener()
@@ -146,19 +138,24 @@ class UpdateReviewActivity : AppCompatActivity() {
             onBackPressed()
         }
         btnUpdate!!.setOnClickListener {
-            if(packagesName==packageList[0])
-                Toast.makeText(this,resources.getString(R.string.selectPackage),Toast.LENGTH_SHORT).show()
-            else if(review!!.overallRating==0f || review!!.foodRating==0f || review!!.transportRating==0f || review!!.accommodationRating==0f)
-                Toast.makeText(this,resources.getString(R.string.addRating),Toast.LENGTH_SHORT).show()
-            else{
-                if(!etReview?.text.isNullOrEmpty())
-                    review!!.overall= etReview!!.text.toString()
-                if(!etAccommodation?.text.isNullOrEmpty())
-                    review!!.accommodation= etAccommodation!!.text.toString()
-                if(!etFood?.text.isNullOrEmpty())
-                    review!!.food= etFood!!.text.toString()
-                if(!etTransport?.text.isNullOrEmpty())
-                    review!!.transport= etTransport!!.text.toString()
+            if (packagesName == packageList[0])
+                Toast.makeText(
+                    this,
+                    resources.getString(R.string.selectPackage),
+                    Toast.LENGTH_SHORT
+                ).show()
+            else if (review!!.overallRating == 0f || review!!.foodRating == 0f || review!!.transportRating == 0f || review!!.accommodationRating == 0f)
+                Toast.makeText(this, resources.getString(R.string.addRating), Toast.LENGTH_SHORT)
+                    .show()
+            else {
+                if (!etReview?.text.isNullOrEmpty())
+                    review!!.overall = etReview!!.text.toString()
+                if (!etAccommodation?.text.isNullOrEmpty())
+                    review!!.accommodation = etAccommodation!!.text.toString()
+                if (!etFood?.text.isNullOrEmpty())
+                    review!!.food = etFood!!.text.toString()
+                if (!etTransport?.text.isNullOrEmpty())
+                    review!!.transport = etTransport!!.text.toString()
                 updateCall(review!!)
             }
         }
@@ -168,16 +165,16 @@ class UpdateReviewActivity : AppCompatActivity() {
     private fun setReview(review: Review) {
         val spinnerPosition: Int = spAdapter.getPosition(review.packagesName)
         spPackage!!.setSelection(spinnerPosition)
-        ratingBar!!.rating= review.overallRating
-        ratingFood!!.rating=review.foodRating
-        ratingTravel!!.rating=review.transportRating
-        ratingAccommodation!!.rating=review.accommodationRating
-        tvMonth!!.text=review.visitedDate
+        ratingBar!!.rating = review.overallRating
+        ratingFood!!.rating = review.foodRating
+        ratingTravel!!.rating = review.transportRating
+        ratingAccommodation!!.rating = review.accommodationRating
+        tvMonth!!.text = review.visitedDate
         etReview!!.setText(review.overall)
         etAccommodation!!.setText(review.accommodation)
         etFood!!.setText(review.food)
         etTransport!!.setText(review.transport)
-        Log.d("DILLL", "setReview: "+review.reviewId)
+        Log.d("DILLL", "setReview: " + review.reviewId)
     }
 
     //pick and set date selected to text view
@@ -199,7 +196,7 @@ class UpdateReviewActivity : AppCompatActivity() {
     private fun updateCall(review: Review) {
         val queue = Volley.newRequestQueue(this)
         val stringRequest = object : StringRequest(
-            Method. POST,
+            Method.POST,
             updateReview,
             Response.Listener<String> { response ->
                 try {
@@ -224,7 +221,7 @@ class UpdateReviewActivity : AppCompatActivity() {
             @Throws(AuthFailureError::class)
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
-                params.put("reviewId", review!!. reviewId.toString())
+                params.put("reviewId", review!!.reviewId.toString())
                 params.put("packagesName", review!!.packagesName)
                 params.put("overallRating", review!!.overallRating.toString())
                 params.put("accommodationRating", review!!.accommodationRating.toString())
@@ -295,7 +292,8 @@ class UpdateReviewActivity : AppCompatActivity() {
             builder.setMessage(context.resources.getString(R.string.logoutConfirmation))
                 .setCancelable(false)
                 .setPositiveButton(context.resources.getString(R.string.confirm)) { dialog, _ -> // Positive button action
-                    val preferences = context.getSharedPreferences("preferences", Context.MODE_PRIVATE)
+                    val preferences =
+                        context.getSharedPreferences("preferences", Context.MODE_PRIVATE)
                     preferences.edit().clear().apply()
 
                     dialog.dismiss()

@@ -21,7 +21,7 @@
     <string name="confirm">确认</string>
 
 
-    <string name="home">Home</string>
+    <string name="home">家</string>
     <string name="myReview">我的评论</string>
     <string name="reviews">点评</string>
     <string name="editProfile">编辑个人资料</string>
@@ -56,27 +56,27 @@
         请告诉我们您在旅行期间对住宿的满意程度。
         所以我们可以在未来提供最好的服务。</string>
 
-    <string name="likes">likes</string>
-    <string name="dislikes">dislikes</string>
-    <string name="reply">reply</string>
-    <string name="edit">edit</string>
-    <string name="delete">delete</string>
-    <string name="update">Update</string>
+    <string name="likes">喜欢</string>
+    <string name="dislikes">不喜欢</string>
+    <string name="reply">回复</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="update">更新</string>
 
     <!--    warnings-->
     <string name="selectPackage">请选择套餐</string>
     <string name="addRating">请加分</string>
     <string name = "alreadyHere">你已经在这里</string>
-    <string name = "noLoading">Cannot load! Retry</string>
-    <string name = "commentPlease">Please type a reply</string>
-    <string name = "passwordMissmatch">Password mismatch</string>
-    <string name = "emailPlease">Please Enter Email</string>
-    <string name = "confirmPasswordPlease">Please Re-enter Password</string>
-    <string name = "passwordPlease">Please Enter Password</string>
-    <string name = "usernamePlease">Please Enter Username</string>
-    <string name = "firstNamePlease">Please Enter First Name</string>
-    <string name="deleteConfirmation">Do you want to delete the review?</string>
-    <string name="logoutConfirmation">Do you want to logout?</string>
+    <string name = "noLoading">无法加载！重试</string>
+    <string name = "commentPlease">请输入回复</string>
+    <string name = "passwordMissmatch">密码不匹配</string>
+    <string name = "emailPlease">请输入邮箱</string>
+    <string name = "confirmPasswordPlease">请重新输入密码</string>
+    <string name = "passwordPlease">请输入密码</string>
+    <string name = "usernamePlease">请输入用户名</string>
+    <string name = "firstNamePlease">请输入名字</string>
+    <string name="deleteConfirmation">您要删除评论吗？</string>
+    <string name="logoutConfirmation">你想退出吗？</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

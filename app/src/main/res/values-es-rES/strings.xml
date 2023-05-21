@@ -21,7 +21,7 @@
     <string name="confirm">Confirmar</string>
 
 
-    <string name="home">Home</string>
+    <string name="home">Hogar</string>
     <string name="myReview">Mis reseñas</string>
     <string name="reviews">Reseñas</string>
     <string name="editProfile">Editar perfil</string>
@@ -56,27 +56,27 @@
         Háganos saber su nivel satisfactorio de alojamiento que tuvo durante el recorrido.
         Para que podamos dar nuestro mejor servicio en el futuro.</string>
 
-    <string name="likes">likes</string>
-    <string name="dislikes">dislikes</string>
-    <string name="reply">reply</string>
-    <string name="edit">edit</string>
-    <string name="delete">delete</string>
-    <string name="update">Update</string>
+    <string name="likes">gustos</string>
+    <string name="dislikes">disgustos</string>
+    <string name="reply">responder</string>
+    <string name="edit">editar</string>
+    <string name="delete">borrar</string>
+    <string name="update">Actualizar</string>
 
     <!--    warnings-->
     <string name="selectPackage">Seleccione el paquete</string>
     <string name="addRating">Por favor agregue calificación</string>
     <string name = "alreadyHere">Ya estas aqui</string>
-    <string name = "noLoading">Cannot load! Retry</string>
-    <string name = "commentPlease">Please type a reply</string>
-    <string name = "passwordMissmatch">Password mismatch</string>
-    <string name = "emailPlease">Please Enter Email</string>
-    <string name = "confirmPasswordPlease">Please Re-enter Password</string>
-    <string name = "passwordPlease">Please Enter Password</string>
-    <string name = "usernamePlease">Please Enter Username</string>
-    <string name = "firstNamePlease">Please Enter First Name</string>
-    <string name="deleteConfirmation">Do you want to delete the review?</string>
-    <string name="logoutConfirmation">Do you want to logout?</string>
+    <string name = "noLoading">¡No puede cargar! Rever</string>
+    <string name = "commentPlease">Por favor escriba una respuesta</string>
+    <string name = "passwordMissmatch">Contraseña no coincideh</string>
+    <string name = "emailPlease">Ingrese el correo electrónico</string>
+    <string name = "confirmPasswordPlease">Por favor, vuelva a introducir la contraseña</string>
+    <string name = "passwordPlease">Por favor, ingrese contraseña</string>
+    <string name = "usernamePlease">Ingrese el nombre de usuario</string>
+    <string name = "firstNamePlease">Ingrese el nombre</string>
+    <string name="deleteConfirmation">¿Quieres eliminar la reseña?</string>
+    <string name="logoutConfirmation">¿Quieres cerrar sesión?</string>
 
     <!--    places list-->
     <string-array name="tourPackage">

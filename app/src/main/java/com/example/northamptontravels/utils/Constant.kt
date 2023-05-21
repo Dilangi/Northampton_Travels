@@ -17,5 +17,6 @@ class Constant {
         val UPDATE_REVIEW: String = "&updateReview=1"
         val LIKES_REVIEW: String = "&addLikes=1"
         val DISLIKE_REVIEW: String = "&addDislike=1"
+        val ALL_REVIEWS: String = "&allReviews=1"
     }
 }

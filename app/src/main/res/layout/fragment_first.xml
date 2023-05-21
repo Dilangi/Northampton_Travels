@@ -42,11 +42,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/visited" />
 
-            <TextView
-                style="@style/labelTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/photos" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,13 +53,14 @@
             <Spinner
                 android:id="@+id/spPackage"
                 style="@style/labelTxt"
+                android:layout_marginBottom="@dimen/twenty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:entries="@array/tourPackage" />
 
             <androidx.appcompat.widget.AppCompatRatingBar
                 android:id="@+id/ratingBar"
-                android:layout_width="match_parent"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/ten"
                 android:contentDescription="@string/rate"
@@ -99,21 +95,6 @@
                     style="@style/labelTxt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/twenty">
-
-                <ImageView
-                    android:id="@+id/ivPhotos"
-                    android:layout_marginLeft="@dimen/ten"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_picture" />
 
             </LinearLayout>
 
